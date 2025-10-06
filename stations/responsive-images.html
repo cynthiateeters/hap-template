@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAP's Learning Lab - Responsive Image Syntax</title>
+    <meta name="description"
+        content="HAP learns about srcset and sizes attributes. Discover how responsive images can reduce mobile data usage by 70% with the right syntax.">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Prism.js syntax highlighting -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with HyBit -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Responsive Image Syntax</h1>
+                    <p class="subtitle">Deep Dive into srcset and sizes Attributes</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <p><strong>Welcome to Station 2!</strong> Prof. Teeters taught me about one of the trickiest puzzles in
+                    web development: how to serve the perfect image size to every device. Did you know that using
+                    responsive images can reduce mobile data usage by up to 70%? Let me show you the syntax that makes
+                    this magic happen! 🟠</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Inter-Page Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="2">Station 2 of 6</div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: The Resolution Problem -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">The Resolution Problem</h2>
+
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> Prof. Teeters explained it like this: sending a 2000px image to a
+                    320px phone screen is like shipping a refrigerator to someone who ordered a lunchbox! Or worse,
+                    sending a tiny 320px image to a 4K monitor is like giving someone a postage stamp to hang on their
+                    wall.</p>
+            </div>
+
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📸</span> Mobile Waste</h3>
+                    <p class="stat-large">85%
+                        wasted</p>
+                    <p>2MB image → 320px screen<br>
+                        User pays for unused pixels<br>
+                        Slow loading, frustrated users</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔬</span> Desktop Blur</h3>
+                    <p class="stat-large stat-teal">
+                        Pixelated</p>
+                    <p>320px image → 1440px display<br>
+                        Stretched and blurry<br>
+                        Unprofessional appearance</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎯</span> One Size Fails All</h3>
+                    <p class="stat-large stat-brown">No
+                        Winner</p>
+                    <p>No perfect middle ground<br>
+                        Either too big or too small<br>
+                        Need multiple versions!</p>
+                </div>
+            </div>
+
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP looking confused while studying" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <p>The srcset syntax looked like gibberish to me at first! All those 'w' descriptors and sizes
+                        calculations seemed impossible. But Prof. Teeters showed me it's just telling the browser: "Here
+                        are your options, pick the best one." Once I understood that, everything clicked!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Understanding srcset with Width Descriptors -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Understanding srcset Width Descriptors</h2>
+
+                <p class="mb-2">Prof. Teeters taught me that the <code>srcset</code> attribute gives browsers multiple
+                    image options
+                    using width descriptors. You tell the browser the actual pixel width of each image file, and it
+                    intelligently selects the best one based on the device's screen size and pixel density.</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>📊 How Width Descriptors Work</h3>
+                        <p><strong>What they mean:</strong> "This image file is 300 pixels wide"</p>
+                        <p><strong>Syntax:</strong> <code>image.jpg 300w</code></p>
+                        <p><strong>Why they're powerful:</strong> The browser automatically handles pixel density!</p>
+                        <p>A 300w image can serve both a 300px display at 1x density AND a 150px display at 2x density.
+                        </p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>🔬 Browser Intelligence</h3>
+                        <p><strong>The browser knows:</strong></p>
+                        <p>• Viewport size<br>
+                            • Device pixel ratio (1x, 2x, 3x)<br>
+                            • Network conditions<br>
+                            • User preferences</p>
+                        <p>It uses ALL this information to pick the optimal image automatically!</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Basic srcset syntax:</div>
+                    <pre><code class="language-html">&lt;img srcset="small.jpg 300w,
+             medium.jpg 600w,
+             large.jpg 1200w"
+     src="medium.jpg"
+     alt="Responsive example"&gt;</code></pre>
+                    <p class="code-comment mt-1">
+                        /* Browser sees: "I have 3 options: a 300px wide file, a 600px wide file, and a 1200px wide
+                        file" */</p>
+                </div>
+
+                <div class="interactive-demo mt-2">
+                    <h3>🎯 Width Descriptor Benefits</h3>
+                    <ul class="mt-1">
+                        <li><strong>Automatic density handling:</strong> No need to create separate 1x, 2x, 3x versions
+                        </li>
+                        <li><strong>Future-proof:</strong> Works with any pixel density, even 4x or higher</li>
+                        <li><strong>Simpler workflow:</strong> Just provide different sizes, browser does the math</li>
+                        <li><strong>Better performance:</strong> Browser can optimize based on network speed too</li>
+                    </ul>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Real world example:</div>
+                    <pre><code class="language-html">&lt;img srcset="puppy-small.jpg 400w,
+             puppy-medium.jpg 800w,
+             puppy-large.jpg 1600w"
+     src="puppy-medium.jpg"
+     alt="Cute puppy"&gt;</code></pre>
+                    <p class="mt-1">
+                        • <strong>puppy-small.jpg:</strong> 45KB file, 400px wide<br>
+                        • <strong>puppy-medium.jpg:</strong> 125KB file, 800px wide<br>
+                        • <strong>puppy-large.jpg:</strong> 380KB file, 1600px wide<br>
+                        <span class="code-highlight">→ Mobile users get 45KB instead of
+                            380KB!</span>
+                    </p>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 Critical rule: Always use 'w' descriptor</h3>
+                    <p><strong class="text-success">✅ RIGHT:</strong></p>
+                    <pre><code class="language-html">srcset="small.jpg 300w, large.jpg 600w"</code></pre>
+                    <p><strong class="text-error">❌ WRONG:</strong></p>
+                    <pre><code class="language-html">srcset="small.jpg, large.jpg"</code></pre>
+                    <p>(no descriptors)</p>
+                    <p class="mt-1">Every image in srcset MUST have a width descriptor. The 'w' tells the
+                        browser the actual pixel width of that image file.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Mastering the sizes Attribute -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Mastering the sizes Attribute</h2>
+
+                <p class="mb-2">The <code>srcset</code> tells the browser "what image files are
+                    available" but the browser needs to know "how big will the image display on the page?" The
+                    <code>sizes</code> attribute provides that crucial information. Without it, the browser assumes
+                    100vw (full viewport width).
+                </p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">How sizes works:</div>
+                    <pre><code class="language-html">&lt;img srcset="small.jpg 300w, medium.jpg 600w, large.jpg 1200w"
+     sizes="(max-width: 320px) 280px,
+            (max-width: 640px) 100vw,
+            50vw"
+     src="medium.jpg"
+     alt="Example with sizes"&gt;</code></pre>
+                </div>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>Line 1: Phone Screens</h3>
+                        <p><code>(max-width: 320px) 280px</code></p>
+                        <p>"On phones ≤320px wide, the image displays at 280px"</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>Line 2: Small Tablets</h3>
+                        <p><code>(max-width: 640px) 100vw</code></p>
+                        <p>"On screens ≤640px, the image fills the viewport"</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>Line 3: Default Size</h3>
+                        <p><code>50vw</code></p>
+                        <p>"On larger screens, image takes half the width"</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>How It Works</h3>
+                        <p>• Browser checks top to bottom<br>
+                            • First match wins<br>
+                            • Last value is the default<br>
+                            • Browser multiplies by pixel density!</p>
+                    </div>
+                </div>
+
+                <h3 class="mt-3 mb-1-5">Common sizes Patterns</h3>
+
+                <div class="overview-grid">
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">📸</span> Full-width Images</h3>
+                        <div class="code-display">
+                            sizes="100vw"
+                        </div>
+                        <p>Use for: Heroes, banners, edge-to-edge images</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">📊</span> Content with Margins</h3>
+                        <div class="code-display">
+                            sizes="(min-width: 640px) 600px, calc(100vw - 2rem)"
+                        </div>
+                        <p>Use for: Blog posts, articles with padding</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🎯</span> Sidebar Layouts</h3>
+                        <div class="code-display">
+                            sizes="(min-width: 1024px) 300px, (min-width: 768px) 200px, 100vw"
+                        </div>
+                        <p>Use for: Aside content, author bios</p>
+                    </div>
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🔬</span> Grid Layouts</h3>
+                        <div class="code-display">
+                            sizes="(min-width: 1200px) 25vw, (min-width: 768px) 50vw, 100vw"
+                        </div>
+                        <p>Use for: Card grids, galleries</p>
+                    </div>
+                </div>
+
+                <div class="interactive-demo mt-2">
+                    <h3>🎯 The vw Unit Explained</h3>
+                    <p><strong>vw = viewport width percentage</strong></p>
+                    <ul class="mt-1">
+                        <li><code>100vw</code> = full viewport width</li>
+                        <li><code>50vw</code> = half viewport width</li>
+                        <li><code>25vw</code> = quarter viewport width</li>
+                        <li><code>calc(100vw - 2rem)</code> = full width minus padding</li>
+                    </ul>
+                </div>
+
+                <div class="analysis-point content-box mt-2">
+                    <h3>📊 How Browser Selects Images</h3>
+                    <p><strong>Example:</strong> On a phone with 360px viewport and 3x pixel density:</p>
+                    <ol class="mt-1">
+                        <li>Browser checks <code>sizes</code>: image will display at 100vw = 360px</li>
+                        <li>Multiplies by pixel density: 360px × 3 = 1080px needed</li>
+                        <li>Looks at <code>srcset</code>: picks smallest image ≥1080px wide</li>
+                        <li>Downloads the 1200w image (if available)</li>
+                    </ol>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 Common Mistakes to Avoid</h3>
+                    <ol class="mt-1">
+                        <li><strong>Forgetting sizes entirely</strong> → Browser assumes 100vw, often wrong</li>
+                        <li><strong>Wrong order</strong> → Media queries must go smallest to largest</li>
+                        <li><strong>Using px in conditions</strong> → Write <code>(max-width: 640px)</code> not just
+                            <code>640px</code>
+                        </li>
+                        <li><strong>Over-complicating</strong> → Start simple, 2-3 breakpoints usually enough</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Putting It Together -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Putting It All Together</h2>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Complete blog post image:</div>
+                    <pre><code class="language-html">&lt;!-- Blog Post Image --&gt;
+&lt;img srcset="blog-400.jpg 400w,
+             blog-800.jpg 800w,
+             blog-1200.jpg 1200w,
+             blog-1600.jpg 1600w"
+     sizes="(min-width: 840px) 800px,
+            calc(100vw - 2rem)"
+     src="blog-800.jpg"
+     alt="Blog post illustration"&gt;</code></pre>
+
+                    <p class="bordered-box">
+                        <strong>Why this works:</strong><br>
+                        • 4 size options cover all devices<br>
+                        • Desktop gets fixed 800px (content width)<br>
+                        • Mobile gets full width minus padding<br>
+                        • Handles all pixel densities automatically<br>
+                        • Fallback src for old browsers
+                    </p>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Full-width hero pattern:</div>
+                    <pre><code class="language-html">&lt;!-- Full-Width Hero --&gt;
+&lt;img srcset="hero-640.jpg 640w,
+             hero-1280.jpg 1280w,
+             hero-1920.jpg 1920w,
+             hero-2560.jpg 2560w"
+     sizes="100vw"
+     src="hero-1280.jpg"
+     alt="Hero banner"&gt;</code></pre>
+
+                    <p class="bordered-box">
+                        <strong>Perfect for:</strong><br>
+                        • Landing pages<br>
+                        • Full-bleed headers<br>
+                        • Background images<br>
+                        • Automatically serves 2x for retina displays!
+                    </p>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Grid gallery pattern:</div>
+                    <pre><code class="language-html">&lt;!-- Grid Item --&gt;
+&lt;img srcset="product-200.jpg 200w,
+             product-400.jpg 400w,
+             product-600.jpg 600w,
+             product-800.jpg 800w"
+     sizes="(min-width: 1200px) 25vw,
+            (min-width: 768px) 50vw,
+            100vw"
+     src="product-400.jpg"
+     alt="Product thumbnail"&gt;</code></pre>
+
+                    <p class="bordered-box">
+                        <strong>Responsive grid magic:</strong><br>
+                        • 4 columns on desktop (25vw each)<br>
+                        • 2 columns on tablet (50vw each)<br>
+                        • 1 column on mobile (100vw)<br>
+                        • Browser picks optimal file for each!
+                    </p>
+                </div>
+
+                <div class="analysis-point content-box mt-2">
+                    <h3>🔬 Testing Your Implementation</h3>
+                    <ul class="mt-1">
+                        <li>Open DevTools Network tab</li>
+                        <li>Filter by Images</li>
+                        <li>Resize browser window</li>
+                        <li>Refresh at different sizes</li>
+                        <li>Verify correct image loads</li>
+                        <li>Check file sizes match expectations</li>
+                        <li>Test on real devices with different pixel densities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: HyBit's Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">
+                    🎓 HyBit's Quick Reference
+                </h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Start Simple</h3>
+                        <p>Begin with 3-4 breakpoints: mobile (400w), tablet (800w), desktop (1200w), large (1600w).
+                            Always
+                            use width descriptors with the 'w' suffix. Default sizes to "100vw" if unsure, then refine.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Remember the Formula</h3>
+                        <p><strong>srcset</strong> = "Here are my image files and their pixel widths"<br>
+                            <strong>sizes</strong> = "This is how big it displays on the page"<br>
+                            <strong>Browser</strong> = "I'll pick the best one considering pixel density and network"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Universal pattern that works</h3>
+                        <pre><code class="language-html">&lt;img srcset="img-400.jpg 400w,
+             img-800.jpg 800w,
+             img-1200.jpg 1200w,
+             img-1600.jpg 1600w"
+     sizes="(min-width: 1024px) 1024px, 100vw"
+     src="img-800.jpg"
+     alt="Description"&gt;</code></pre>
+                        <p class="mt-1">This covers 95% of use cases and handles all pixel densities!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Width Descriptors Handle Everything</h3>
+                        <p>The beauty of width descriptors: they automatically handle pixel density! <br>A 1200w image
+                            serves:<br>
+                            • 1200px displays at 1x density<br>
+                            • 600px displays at 2x density (retina)<br>
+                            • 400px displays at 3x density<br>
+                            No need for separate density versions!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="ai-poetry-images.html" class="nav-link prev-link">← Previous: Station 1 - AI Poetry & Images</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="art-direction.html" class="nav-link next-link">Next: Station 3 - Art Direction →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: The right image size can make your site 70% faster on mobile! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Performance Easter Egg -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Prism.js core + HTML language support -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.classList.add('copied');
+                        button.textContent = 'Copied';
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

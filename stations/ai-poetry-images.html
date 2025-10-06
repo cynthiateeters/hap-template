@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAP's Learning Lab - AI Poetry Visualization</title>
+    <meta name="description"
+        content="Join HAP as he learns about AI image generation for poetry. Discover why concrete poems work instantly while abstract poems need careful prompt engineering.">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with HyBit -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Poetry & AI Learning Lab</h1>
+                    <p class="subtitle">Exploring AI-Generated Imagery for Poetry</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <p><strong>Welcome to Station 1!</strong> I'm HAP, Prof. Teeters' apprentice! Today I'm excited to show
+                    you what I learned about creating AI-generated images for poems. Some poems "work instantly" with
+                    AI, while others need careful prompt engineering. Let me show you what I discovered! 🔬</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Inter-Page Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position">Station 1 of 6</div>
+    </nav>
+
+    <!-- Navigation -->
+    <main id="main-content" class="content-container">
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">🏠 Overview</button>
+            <button class="nav-tab" onclick="showTab('phenomenal')">👑 Phenomenal Woman</button>
+            <button class="nav-tab" onclick="showTab('erlking')">🌲 The Erl-King</button>
+            <button class="nav-tab" onclick="showTab('tips')">🟠 HAP's Tips</button>
+        </div>
+
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-panel active">
+            <h2 class="section-heading-centered">Learning Overview</h2>
+            <div class="overview-grid">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎯</span> What I Learned</h3>
+                    <p>Not all poems are equal when it comes to AI image generation! Prof. Teeters taught me that
+                        <strong>concrete, visual poems</strong> generate amazing images immediately, while
+                        <strong>abstract, conceptual poems</strong> require careful prompt engineering.
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔬</span> How I Learned This</h3>
+                    <p>Prof. Teeters had me analyze two contrasting poems: Maya Angelou's abstract "Phenomenal Woman"
+                        and Goethe's
+                        concrete "The Erl-King". The results were fascinating and taught me valuable lessons about AI
+                        behavior!</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📊</span> Key Findings</h3>
+                    <ul class="list-inside mt-1">
+                        <li>AI has visual biases (fashion, glamour)</li>
+                        <li>Historic poems have "visual inertia"</li>
+                        <li>Abstract concepts need translation</li>
+                        <li>Iteration is essential</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h3>🟠 HAP's Discovery</h3>
+                <p>At first, I tried asking my image generator to analyze its own output. Prof. Teeters showed me a
+                    better approach:</p>
+                <ul>
+                    <li>Image generators focus on creation, not analysis</li>
+                    <li>Uploading images to ChatGPT or Claude gives you better feedback</li>
+                    <li>This two-AI approach helped me develop better prompts more quickly</li>
+                </ul>
+                <p class="mt-1"><em>What I learned: Different AI tools have different strengths – understanding this
+                        made me much more effective!</em></p>
+            </div>
+
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP looking confused while studying" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Learning Note:</h3>
+                    <p>When I first tried generating images for abstract poems, I got totally different results than
+                        what I expected! That's when Prof. Teeters taught me about visual bias in AI. It was frustrating
+                        at first, but now I understand why iteration matters. The two-AI method (using ChatGPT to
+                        critique my image prompts) made everything so much easier!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phenomenal Woman Tab -->
+        <div id="phenomenal" class="tab-panel">
+            <div class="topic-section">
+                <div class="topic-header">
+                    <div class="topic-icon">👑</div>
+                    <div class="topic-title">
+                        <h2>Phenomenal Woman</h2>
+                        <p class="topic-author">by Maya Angelou (1978)</p>
+                    </div>
+                </div>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h4>🎭 Poem Qualities</h4>
+                        <p>Abstract, metaphorical, about inner strength and charisma rather than physical description
+                        </p>
+                    </div>
+                    <div class="analysis-point">
+                        <h4>AI's Default Behavior</h4>
+                        <p>Generated glamorous, model-like imagery (fashion magazine bias)</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h4>⚠️ The Challenge</h4>
+                        <p>AI misinterpreted "phenomenal" as "physically beautiful" rather than "powerful presence"</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h4>✅ What I Learned</h4>
+                        <p>Prof. Teeters showed me how to explicitly guide AI away from fashion imagery toward dignity
+                            and strength</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Prompt Evolution with Two-AI Method:</div>
+                    <p><strong>Attempt 1 (nano banana):</strong> "Phenomenal woman" → Fashion model (too glamorous)</p>
+                    <p><strong>ChatGPT-5 Analysis:</strong> "Seems too focused on external beauty, try emphasizing inner
+                        strength"</p>
+                    <p><strong>Attempt 2 (nano banana):</strong> Modified prompt → Still glamorous</p>
+                    <p><strong>ChatGPT-5 Suggestion:</strong> "Try using negative prompting to avoid fashion imagery"
+                    </p>
+                    <p><strong>Final Success:</strong> "A confident woman with commanding presence in an art gallery
+                        setting. NOT glamorous or fashionable. Focus on charisma, inner strength, and dignity.
+                        Professional museum atmosphere."</p>
+                </div>
+
+                <div class="image-comparison">
+                    <div>
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_limit/v1759272550/woman_z2yicy.jpg"
+                            alt="AI's default glamorous interpretation" class="topic-image" width="1200" height="800" loading="lazy">
+                        <div class="image-caption">
+                            <h4>❌ Before: AI's Default (Glamorous)</h4>
+                            <p>AI interpreted "phenomenal woman" as physically beautiful and fashionable. The result
+                                looks like a magazine cover rather than capturing inner strength and dignity.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_limit/v1759272550/better-image_ie6kze.jpg"
+                            alt="Improved dignified interpretation after prompt engineering" class="topic-image" width="1200" height="800" loading="lazy">
+                        <div class="image-caption">
+                            <h4>✅ After: With Proper Prompting (Dignified)</h4>
+                            <p>By explicitly guiding the AI away from glamour and toward dignity, we captured the poem's
+                                true meaning: inner strength and commanding presence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🎨 HyBit's Insight</h3>
+                    <p>Abstract poems require us to <strong>translate feelings into visual elements</strong>. We must
+                        tell the AI what NOT to create and anchor the setting to convey the right mood! Notice how the
+                        improved image focuses on <em>presence</em> rather than <em>appearance</em>.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚠️ Important Discovery: Different AI Tools Have Different Skills</h3>
+                    <p>While working on this poem, I discovered something important about how AI tools work:</p>
+                    <ul>
+                        <li>Image generators (like nano banana) typically ONLY create - they can't analyze their own
+                            output</li>
+                        <li>Language models (like ChatGPT or Claude) analyze but are not necessarily specialized to
+                            create images</li>
+                        <li>If your image generator produces something not quite right, it can't tell you why</li>
+                        <li>You might find better results uploading your images to ChatGPT/Claude for analysis and a
+                            reworded prompt</li>
+                    </ul>
+                    <p class="mt-1"><strong>My Two-AI Method:</strong> I used ChatGPT-5 (a language model,
+                        not an image generator) to analyze my nano banana results. The language model helped me
+                        understand why the first image was too glamorous and suggested using negative prompting. This
+                        two-tool approach might save you time!</p>
+                    <p class="mt-1"><em>Tip: Image generators typically can't analyze their own output. You
+                            might find better results uploading to a language model for feedback.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Erl-King Tab -->
+        <div id="erlking" class="tab-panel">
+            <div class="topic-section">
+                <div class="topic-header">
+                    <div class="topic-icon">🌲</div>
+                    <div class="topic-title">
+                        <h2>The Erl-King</h2>
+                        <p class="topic-author">by Johann Wolfgang von Goethe (1782)</p>
+                    </div>
+                </div>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h4>📖 Poem Qualities</h4>
+                        <p>Concrete, narrative, with clear characters, setting, and atmosphere</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h4>🎨 AI's Response</h4>
+                        <p>Generated powerful, period-appropriate scene immediately</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h4>🟠 Why It Worked</h4>
+                        <p>Visual and specific imagery (horses, crown, mist, forest)</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h4>📚 Historical Advantage</h4>
+                        <p>Centuries of artistic tradition in AI's training data</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Simple Prompt That Worked:</div>
+                    <p>"Father riding horse through dark forest at night with child, spectral king figure in mist,
+                        Gothic Romantic style, dramatic shadows and wind"</p>
+                </div>
+
+                <div class="single-image-container">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_limit/v1759272550/erl-king_lpakfs.jpg"
+                        alt="Gothic scene of father and child on horseback with spectral Erl-King in misty forest"
+                        class="topic-image" width="1200" height="800" loading="lazy">
+                    <div class="image-caption">
+                        <h4>🎯 Immediate Success: Gothic Atmosphere Captured Perfectly</h4>
+                        <p>This image was generated on the <strong>first try</strong> with minimal prompting! The AI
+                            immediately understood the concrete elements: horses, forest, supernatural figure, and
+                            Gothic mood. Centuries of artistic tradition made this visualization effortless.</p>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🔍 HyBit's Analysis</h3>
+                    <p>This poem worked instantly because it's <strong>concrete and iconic</strong>! The AI has seen
+                        countless Gothic/Romantic artworks and knows exactly how to visualize this scene. Notice the
+                        dramatic lighting, period-appropriate clothing, and supernatural atmosphere - all captured
+                        without iteration.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Tab -->
+        <div id="tips" class="tab-panel">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">
+                    🎓 HyBit's Guidelines for Success
+                </h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Identify Your Poem Type</h3>
+                        <p>Is it concrete (objects, scenes) or abstract (feelings, concepts)? This determines your
+                            strategy!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>For Concrete Poems</h3>
+                        <p>Highlight objects, characters, and settings. Use descriptive nouns and action verbs. Let the
+                            AI
+                            visualize what's already there.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>For Abstract Poems</h3>
+                        <p>Translate mood into visual elements: body language, colors, environment. Tell AI what NOT to
+                            create. Anchor with specific settings.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Iterate, Don't Accept!</h3>
+                        <p>Never accept the first image blindly. Keep refining until the image reflects the poem's TRUE
+                            meaning, not surface beauty.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Remember the Formula</h3>
+                        <p><strong>Concrete + Iconic = Easy</strong> | <strong>Abstract + Modern = Harder but
+                                Rewarding!</strong></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>Use the Right Feedback Loop</h3>
+                        <p>When your image isn't quite right, don't ask your image generator to explain why - it
+                            typically
+                            can't! Instead, consider uploading the image to a language model like ChatGPT or Claude for
+                            analysis. This two-AI approach might help you iterate faster and understand what adjustments
+                            to
+                            make.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">7</div>
+                    <div>
+                        <h3>Understanding Your AI Tools</h3>
+                        <p><strong>Image Generators</strong> (Midjourney, DALL-E, nano banana): Typically specialized
+                            for
+                            visual creation</p>
+                        <p><strong>Language Models</strong> (ChatGPT-5, Claude): Better suited for analysis and prompt
+                            refinement</p>
+                        <p><strong>Why this matters:</strong> Using tools for their strengths might save you time.
+                            Consider
+                            uploading not-quite-right images to a language model for analysis!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="responsive-images.html" class="nav-link next-link">Next: Station 2 - Responsive Images →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: AI is your collaborator, not a mind reader. Guide it wisely! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show selected panel
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+    </script>
+
+    <!-- Performance Easter Egg -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

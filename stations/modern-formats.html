@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAP's Learning Lab - Modern Image Formats</title>
+    <meta name="description"
+        content="HAP compares JPEG, PNG, WebP, and AVIF formats. Learn how choosing the right format can reduce page load time by 50% or more.">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Prism.js syntax highlighting -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with HyBit -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Modern Image Formats</h1>
+                    <p class="subtitle">Understanding JPEG, PNG, WebP, and AVIF</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <p><strong>Welcome to Station 4!</strong> Prof. Teeters showed me how choosing the right image format
+                    can reduce page load time by 50% or more! When I first learned about JPEG, PNG, WebP, and AVIF, I
+                    didn't know which to use when. Now I can't wait to share what I learned! 🔬</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Inter-Page Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position">Station 4 of 6</div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="content-container">
+
+        <!-- Overview Section -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">The Four Essential Formats
+            </h2>
+
+            <div class="overview-grid">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📸</span> JPEG</h3>
+                    <p><strong>Best for:</strong> Photographs, complex images<br>
+                        <strong>Compression:</strong> Lossy<br>
+                        <strong>Transparency:</strong> No<br>
+                        <strong>Browser Support:</strong> 100%
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎨</span> PNG</h3>
+                    <p><strong>Best for:</strong> Graphics, logos, transparency<br>
+                        <strong>Compression:</strong> Lossless<br>
+                        <strong>Transparency:</strong> Yes<br>
+                        <strong>Browser Support:</strong> 100%
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🟠</span> WebP</h3>
+                    <p><strong>Best for:</strong> Everything (with fallback)<br>
+                        <strong>Compression:</strong> Lossy or lossless<br>
+                        <strong>Transparency:</strong> Yes<br>
+                        <strong>Browser Support:</strong> 97%
+                    </p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🚀</span> AVIF</h3>
+                    <p><strong>Best for:</strong> Future-ready sites<br>
+                        <strong>Compression:</strong> Superior lossy/lossless<br>
+                        <strong>Transparency:</strong> Yes<br>
+                        <strong>Browser Support:</strong> 91%
+                    </p>
+                </div>
+            </div>
+
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP looking confused while studying" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Learning Note:</h3>
+                    <p>When Prof. Teeters first showed me AVIF files, I was amazed – half the size of JPEG with better
+                        quality! But then I worried: "What about old browsers?" She taught me the beauty of progressive
+                        enhancement with the &lt;picture&gt; element. Now I love that we can use cutting-edge formats
+                        while still supporting everyone!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Delivery Infrastructure Section -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">How We Deliver These Images
+            </h2>
+
+            <div class="topic-section">
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>🌐 What is Cloudinary?</h3>
+                        <p>Cloudinary is a <strong>Content Delivery Network (CDN)</strong> with image transformation
+                            built in. Instead of hosting images on our own server, we store them in Cloudinary's cloud
+                            and let them handle:</p>
+                        <ul>
+                            <li>Format conversion (JPEG → WebP → AVIF)</li>
+                            <li>Quality optimization</li>
+                            <li>Resizing and cropping</li>
+                            <li>Global delivery from nearby servers</li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>🎯 Why Use a CDN?</h3>
+                        <p><strong>Speed:</strong> Images load faster from servers near your visitors (Tokyo users get
+                            images from Asian servers, not our US server).</p>
+                        <p><strong>Automation:</strong> Upload once, get automatic format conversion and optimization.
+                        </p>
+                        <p><strong>Bandwidth savings:</strong> Cloudinary pays for the server traffic, not us.</p>
+                        <p><strong>Developer experience:</strong> Change image sizes/quality with URL parameters, no
+                            re-uploading.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Anatomy of a Cloudinary URL</div>
+                    <p>https://res.cloudinary.com/cynthia-teeters/image/upload/<br>
+                        <span class="code-highlight">f_auto</span> - Auto format
+                        (WebP/AVIF/JPEG based on browser)<br>
+                        <span class="code-highlight">q_auto</span> - Auto quality
+                        (AI-optimized compression)<br>
+                        <span class="code-highlight">w_600</span> - Width 600px
+                        (responsive sizing)<br>
+                        <span class="code-highlight">c_limit</span> - Don't upscale
+                        (preserve quality)<br>
+                        /v1759335049/image_id.jpg
+                    </p>
+                    <p class="mt-1"><strong>Same URL, different results:</strong> Chrome gets WebP, Safari
+                        16+ gets AVIF, old browsers get JPEG - all automatically!</p>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🎨 HAP's Take</h3>
+                    <p>Prof. Teeters taught me to think of Cloudinary as a smart image assistant. You give it one
+                        high-quality image, and it
+                        automatically creates optimized versions for every browser and device. The <code>f_auto</code>
+                        parameter alone can reduce your page weight by 30-50% without any extra work!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Comparison Section -->
+        <section class="content-section">
+            <div class="topic-section">
+                <div class="topic-header">
+                    <div class="topic-icon">📊</div>
+                    <div class="topic-title">
+                        <h2>Real-World Comparison</h2>
+                        <p class="topic-author">Same image, four different formats</p>
+                    </div>
+                </div>
+
+                <p>Prof. Teeters had me compare the same lab photograph saved in all four formats. When I saw the file
+                    sizes,
+                    I understood why this matters so much for web performance!</p>
+
+                <div class="image-comparison">
+                    <div>
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_jpg,q_auto,w_600,c_limit/v1759335049/hans-reniers-lQGJCMY5qcM-unsplash_cpn5yx.jpg"
+                            alt="Laboratory glassware - JPEG format" class="topic-image">
+                        <div class="image-caption">
+                            <h3>📸 JPEG</h3>
+                            <p><strong>File size: 18 KB</strong><br>
+                                The traditional web format. Good quality, universal support, but larger than modern
+                                alternatives.</p>
+                            <p class="image-credit">
+                                Photo by <a
+                                    href="https://unsplash.com/@hansreniers?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Hans
+                                    Reniers</a> on <a
+                                    href="https://unsplash.com/photos/three-clear-beakers-placed-on-tabletop-lQGJCMY5qcM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_600,c_limit/v1759335049/hans-reniers-lQGJCMY5qcM-unsplash_cpn5yx.png"
+                            alt="Laboratory glassware - PNG format" class="topic-image">
+                        <div class="image-caption">
+                            <h3>🎨 PNG</h3>
+                            <p><strong>File size: 98 KB</strong><br>
+                                Lossless compression means perfect quality but much larger files. Great for graphics,
+                                not ideal for photos.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_webp,q_auto,w_600,c_limit/v1759335049/hans-reniers-lQGJCMY5qcM-unsplash_cpn5yx.webp"
+                            alt="Laboratory glassware - WebP format" class="topic-image">
+                        <div class="image-caption">
+                            <h3>🟠 WebP</h3>
+                            <p><strong>File size: 14 KB</strong><br>
+                                23% smaller than JPEG! Same visual quality with much better compression. This is the
+                                sweet spot for most sites.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_avif,q_auto,w_600,c_limit/v1759335049/hans-reniers-lQGJCMY5qcM-unsplash_cpn5yx.avif"
+                            alt="Laboratory glassware - AVIF format" class="topic-image">
+                        <div class="image-caption">
+                            <h3>🚀 AVIF</h3>
+                            <p><strong>File size: 9 KB</strong><br>
+                                48% smaller than JPEG! The newest format with incredible compression. Needs fallback
+                                support.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🎨 HyBit's Insight</h3>
+                    <p>Notice the dramatic file size differences! AVIF is <strong>48% smaller</strong> than JPEG while
+                        maintaining the same visual quality. For a site with 50 images, switching from JPEG to AVIF
+                        could reduce your page weight from 900 KB to 450 KB - that's a <strong>huge</strong> performance
+                        boost, especially on mobile networks!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- File Size Savings Section -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">The Numbers Don't Lie</h2>
+
+            <div class="overview-grid">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📊</span> JPEG Baseline</h3>
+                    <p class="stat-success stat-orange">
+                        18 KB
+                    </p>
+                    <p>Our starting point. This is what most websites use today for photographs.</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🟠</span> WebP Savings</h3>
+                    <p class="stat-success stat-teal">
+                        -23%
+                    </p>
+                    <p>WebP cuts file size by 23% compared to JPEG. That's 14 KB instead of 18 KB - same quality!</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🚀</span> AVIF Savings</h3>
+                    <p class="stat-success">
+                        -48%
+                    </p>
+                    <p>AVIF is incredible: 48% smaller than JPEG! Just 9 KB for the same image with excellent quality.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browser Support Section -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Browser Compatibility</h2>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>📸 JPEG Support</h3>
+                        <p><strong>100% of browsers</strong><br>
+                            Universal support since the 1990s. Every browser, every device, every platform supports
+                            JPEG.</p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>🎨 PNG Support</h3>
+                        <p><strong>100% of browsers</strong><br>
+                            Universal support since the late 1990s. PNG is the standard for graphics with transparency.
+                        </p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>🟠 WebP Support</h3>
+                        <p><strong>97% of browsers</strong><br>
+                            Chrome, Edge, Firefox, Safari (iOS 14+). Missing: old Android browsers, old Safari versions.
+                        </p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>🚀 AVIF Support</h3>
+                        <p><strong>91% of browsers</strong><br>
+                            Chrome 85+, Firefox 93+, Safari 16+. Growing fast but still needs JPEG/WebP fallback.</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>🟠 The Fallback Strategy</h3>
+                    <p>Modern formats require fallback support. Here's the smart approach:</p>
+                    <ul>
+                        <li><strong>Best:</strong> Use the HTML picture element with multiple formats</li>
+                        <li><strong>Easier:</strong> Let Cloudinary handle it automatically with <code>f_auto</code>
+                        </li>
+                        <li><strong>Safe:</strong> Always provide JPEG or PNG as the final fallback</li>
+                        <li><strong>Result:</strong> Modern browsers get small files, old browsers still work!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>How to Implement Modern Formats</h2>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Method 1: HTML Picture Element (Manual Control)</div>
+                    <pre><code class="language-html">&lt;picture&gt;
+  &lt;source srcset="image.avif" type="image/avif"&gt;
+  &lt;source srcset="image.webp" type="image/webp"&gt;
+  &lt;img src="image.jpg" alt="Description"&gt;
+&lt;/picture&gt;</code></pre>
+                    <p class="mt-1"><em>Browser tries AVIF first, falls back to WebP, then JPEG.</em></p>
+                </div>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Method 2: Cloudinary Automatic Format (Recommended)</div>
+                    <p>https://res.cloudinary.com/YOUR-CLOUD/image/upload/<br>
+                        <strong>f_auto</strong>,q_auto,w_1200,c_limit/v1234567890/image_id.jpg
+                    </p>
+                    <p class="mt-1">• <strong>f_auto</strong> automatically delivers WebP or AVIF to
+                        supporting browsers<br>
+                        • Falls back to JPEG for older browsers<br>
+                        • No HTML changes needed - it just works!</p>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🎨 HyBit's Recommendation</h3>
+                    <p>For most projects, use <strong>Cloudinary with f_auto</strong>. It's simpler than managing
+                        multiple files, and you get automatic format optimization based on what each visitor's browser
+                        supports. The picture element gives you more control but requires more maintenance.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Decision Guide -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">
+                    🎓 HyBit's Format Selection Guide
+                </h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>For Photographs</h3>
+                        <p><strong>Use WebP or AVIF with JPEG fallback.</strong> Photos have complex colors and
+                            gradients
+                            that benefit from lossy compression. Modern formats give you 40-65% smaller files with the
+                            same
+                            visual quality. Use Cloudinary's <code>f_auto</code> to handle it automatically.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>For Graphics & Logos</h3>
+                        <p><strong>Use WebP or SVG.</strong> For simple graphics with few colors, WebP provides great
+                            compression with optional transparency. For scalable vector graphics (logos, icons), SVG is
+                            unbeatable - it's resolution-independent and often the smallest option.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>For Screenshots & Text</h3>
+                        <p><strong>Use PNG or WebP lossless.</strong> Images with sharp edges and text need lossless
+                            compression to stay crisp. PNG is the safe choice, but WebP lossless gives you 25% smaller
+                            files
+                            with the same perfect quality.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>For Maximum Performance</h3>
+                        <p><strong>Use AVIF with WebP and JPEG fallbacks.</strong> If you want the absolute best
+                            performance
+                            and don't mind slightly more complex setup, serve AVIF to modern browsers, WebP to slightly
+                            older ones, and JPEG as the final fallback. The picture element makes this easy.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>When in Doubt</h3>
+                        <p><strong>Use Cloudinary with f_auto.</strong> This "set it and forget it" approach
+                            automatically
+                            serves the best format each browser supports. You get most of the benefits with minimal
+                            complexity. Test your pages with Lighthouse to verify the results!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="art-direction.html" class="nav-link prev-link">← Previous: Station 3 - Art Direction</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="loading-strategies.html" class="nav-link next-link">Next: Station 5 - Loading Strategies →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: Choosing the right format is one of the easiest ways to improve web performance! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Performance Easter Egg -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Prism.js core + HTML language support -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    await navigator.clipboard.writeText(code);
+                    button.classList.add('copied');
+                    button.textContent = 'Copied';
+                    setTimeout(() => {
+                        button.classList.remove('copied');
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
+
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

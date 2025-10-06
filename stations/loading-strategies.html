@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAP's Learning Lab - Loading Strategies</title>
+    <meta name="description"
+        content="HAP learns three essential loading strategies: lazy loading, progressive enhancement, and script loading attributes. One attribute saved 80% load time!">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Prism.js syntax highlighting -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with HyBit -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Loading Strategies</h1>
+                    <p class="subtitle">Optimizing When and How Content Loads</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <p><strong>Welcome to Station 5!</strong> Prof. Teeters taught me three essential loading strategies
+                    that can make websites dramatically faster. She explained it like packing for a trip – do you bring
+                    everything at once, or just what you need when you need it? Let me show you what I learned! 🚀</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Inter-page Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="5">Station 5 of 6</div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: The Three Core Strategies -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">The Three Core Strategies
+            </h2>
+
+            <div class="overview-grid">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📦</span> Traditional Loading (Everything at Once)</h3>
+                    <p><strong>How it works:</strong> Browser downloads everything before showing the page. All CSS,
+                        JavaScript, and images load together. Simple but can be slow.</p>
+                    <p class="mt-1"><strong>When to use it:</strong> Small websites (under 200KB total),
+                        critical landing pages, when everything is essential.</p>
+                    <p class="mt-1"><strong>Example:</strong> A local bakery's single-page site loads their
+                        menu, hours, and photos all at once – just 150KB total, loads in under 2 seconds.</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎯</span> Lazy Loading (Just in Time)</h3>
+                    <p><strong>How it works:</strong> Load only what's visible first. Fetch additional content as users
+                        scroll. Images below the fold wait their turn.</p>
+                    <p class="mt-1"><strong>The magic attribute:</strong> Just add
+                        <code>loading="lazy"</code> to images and iframes that aren't immediately visible. The browser
+                        handles the rest!
+                    </p>
+                    <p class="mt-1"><strong>Example:</strong> An online magazine loads the first article
+                        immediately, but the other 50 articles only load their images as you scroll. Result: 80% faster
+                        initial load!</p>
+                </div>
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🚀</span> Progressive Enhancement (Layer by Layer)</h3>
+                    <p><strong>The loading order:</strong></p>
+                    <ul class="mt-0-5">
+                        <li><strong>HTML First:</strong> Content and structure (loads in 0.5 seconds)</li>
+                        <li><strong>CSS Second:</strong> Visual design (loads at 1 second)</li>
+                        <li><strong>JavaScript Last:</strong> Interactivity (loads at 2 seconds)</li>
+                        <li><strong>Extras Finally:</strong> Analytics, widgets (loads when idle)</li>
+                    </ul>
+                    <p class="mt-1"><strong>Example:</strong> A news site's article text appears instantly
+                        (readable!), then styles make it pretty, then comments and sharing buttons arrive. Users can
+                        start reading immediately instead of staring at a blank page.</p>
+                </div>
+            </div>
+
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP looking confused while studying" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Performance Discovery:</h3>
+                    <p>Prof. Teeters showed me a website that loaded instantly, and I was so impressed! Then she showed
+                        me the exact same site WITHOUT lazy loading – it took 8 seconds! That's when I understood:
+                        loading strategies aren't just technical details, they're the difference between users staying
+                        or leaving. One attribute (loading="lazy") saved 80% of the load time!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Script Loading Attributes -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Script Loading Attributes</h2>
+
+                <p class="mb-2">Prof. Teeters warned me: "JavaScript can block your entire page!" Here's what she taught
+                    me about controlling when
+                    scripts run:</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>No attribute (Default)</h3>
+                        <ul>
+                            <li>Stops HTML parsing while downloading</li>
+                            <li>Executes immediately</li>
+                            <li>Blocks everything else</li>
+                            <li>Use only for critical scripts that must run first</li>
+                        </ul>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>Async</h3>
+                        <ul>
+                            <li>Downloads alongside HTML parsing</li>
+                            <li>Executes as soon as it's ready (interrupts if needed)</li>
+                            <li>Good for independent scripts like analytics</li>
+                            <li>Order isn't guaranteed</li>
+                        </ul>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>Defer</h3>
+                        <ul>
+                            <li>Downloads alongside HTML parsing</li>
+                            <li>Waits to execute until HTML is fully parsed</li>
+                            <li>Maintains script order</li>
+                            <li>Perfect for most application scripts</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>🟠 HAP's Tip</h3>
+                    <p>Prof. Teeters taught me: "When in doubt, use defer!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Resource Hints -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Resource Hints</h2>
+
+                <p class="mb-2">Prof. Teeters explained resource hints as "giving the browser a heads up about what's
+                    coming!"</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Preconnect</div>
+                    <pre><code class="language-html">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></pre>
+                    <p class="mt-1"><strong>Use for:</strong> Establishes early connection to external
+                        domains. Perfect for CDNs, font providers, and APIs.</p>
+                    <p class="mt-0-5">"Hey browser, we'll need to talk to this server soon"</p>
+                </div>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Preload</div>
+                    <pre><code class="language-html">&lt;link rel="preload" href="hero-image.webp" as="image"&gt;</code></pre>
+                    <p class="mt-1"><strong>Use for:</strong> Forces download of critical resources. Great
+                        for fonts, hero images, and critical CSS.</p>
+                    <p class="mt-0-5">"This is essential – grab it right now!"</p>
+                </div>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Prefetch</div>
+                    <pre><code class="language-html">&lt;link rel="prefetch" href="next-page.html"&gt;</code></pre>
+                    <p class="mt-1"><strong>Use for:</strong> Suggests resources for future navigation.
+                        Ideal for next page resources and lazy-loaded chunks.</p>
+                    <p class="mt-0-5">"We might need this later, grab it when you're idle"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Real-World Impact -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">Real-World Impact</h2>
+
+            <div class="overview-grid">
+                <div class="insight-card">
+                    <h3>Sarah's Portfolio - Before</h3>
+                    <ul>
+                        <li>Everything loads at once</li>
+                        <li>15 images (8MB) download immediately</li>
+                        <li>All JavaScript in one bundle (450KB)</li>
+                        <li><strong>Time to Interactive:</strong> 12 seconds</li>
+                        <li><strong>Lighthouse score:</strong> 35</li>
+                    </ul>
+                </div>
+                <div class="insight-card">
+                    <h3>Sarah's Portfolio - After</h3>
+                    <ul>
+                        <li>HTML and critical CSS load first</li>
+                        <li>Images use lazy loading</li>
+                        <li>Scripts use defer attribute</li>
+                        <li>Resource hints for fonts</li>
+                        <li><strong>Time to Interactive:</strong> 2.8 seconds</li>
+                        <li><strong>Lighthouse score:</strong> 92</li>
+                    </ul>
+                    <p class="stat-large">
+                        77% improvement!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">
+                    🎯 Quick Reference Guide
+                </h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>The Golden Rules</h3>
+                        <ul>
+                            <li><strong>Start Simple:</strong> Get content visible fast, enhance later</li>
+                            <li><strong>Load Visible First:</strong> Everything below the fold can wait</li>
+                            <li><strong>Defer When Possible:</strong> Let HTML parse before running scripts</li>
+                            <li><strong>Hint at What's Coming:</strong> Help the browser prepare</li>
+                            <li><strong>Measure Everything:</strong> Use Lighthouse to track improvements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Quick Decision Guide</h3>
+                        <ul>
+                            <li><strong>Images below the fold?</strong> → Add lazy loading</li>
+                            <li><strong>Script not critical?</strong> → Add defer attribute</li>
+                            <li><strong>Using external fonts?</strong> → Add preconnect</li>
+                            <li><strong>Have a hero image?</strong> → Add preload</li>
+                            <li><strong>Know the next page?</strong> → Add prefetch</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Your Homework</h3>
+                        <p>Time to optimize! Here's what you'll do:</p>
+                        <ul>
+                            <li><strong>Audit your current project</strong> - Run Lighthouse and note the score</li>
+                            <li><strong>Add lazy loading</strong> to all images below the fold</li>
+                            <li><strong>Add defer</strong> to non-critical scripts</li>
+                            <li><strong>Add one preconnect</strong> for an external resource</li>
+                            <li><strong>Re-run Lighthouse</strong> and celebrate your improvements!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="modern-formats.html" class="nav-link prev-link">← Previous: Station 4 - Modern Formats</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="container-queries.html" class="nav-link next-link">Next: Station 6 - Container Queries →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: It's not about having less content – it's about loading it smarter! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Performance Easter Egg -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Prism.js core + HTML language support -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    await navigator.clipboard.writeText(code);
+                    button.classList.add('copied');
+                    button.textContent = 'Copied';
+                    setTimeout(() => {
+                        button.classList.remove('copied');
+                        button.textContent = 'Copy';
+                    }, 2000);
+                });
+
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+    -->
+</body>
+
+</html>

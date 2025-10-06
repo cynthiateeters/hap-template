@@ -1,0 +1,194 @@
+{
+  // =============================================================================
+  // HAP's Learning Lab - Insights Data File (JSONC - JSON with Comments)
+  // =============================================================================
+  // This file contains all educational insights displayed by the HyBit easter egg
+  // when students add ?hybit parameters to URLs.
+  //
+  // SECURITY: All content here is pre-defined and sanitized. The JavaScript
+  // validates parameters against the allowedParams whitelist before displaying
+  // any messages. User input is NEVER directly inserted into HTML.
+  //
+  // HOW TO ADD A NEW INSIGHT:
+  // 1. Add the parameter name to "allowedParams" array below
+  // 2. Add the message to "messages" object with title and content
+  // 3. Optionally add page-specific help in "pageHelp" section
+  // =============================================================================
+  // WHITELIST: Only these parameter values will trigger specific messages
+  // Any other value will show the generic "unknown" message
+  "allowedParams": [
+    "detail", // Lighthouse performance score
+    "stations", // Learning lab overview
+    "srcset", // Responsive images syntax
+    "picture", // Art direction with picture element
+    "cloudinary", // CDN optimization techniques
+    "defer", // Script loading strategies
+    "lazy", // Lazy loading benefits
+    "container", // Container queries
+    "context", // Context-aware components
+    "prompt", // AI prompt engineering (Station 1)
+    "svg" // SVG vector graphics (Station 4)
+  ],
+  // INSIGHT MESSAGES: Full educational content for each parameter
+  // Format: { "title": "...", "content": "..." }
+  // HTML is allowed in content (code tags, strong, em, etc.)
+  "messages": {
+    "detail": {
+      "title": "🚀 Lighthouse Score: 99%!",
+      "content": "This site is optimized for instant loading with modern web performance techniques."
+    },
+    "stations": {
+      "title": "🔬 Learning Stations",
+      "content": "Explore 6 interactive stations covering visual AI, responsive images, modern formats, and web performance optimization."
+    },
+    "srcset": {
+      "title": "📱 Perfect image for every screen",
+      "content": "The <code>srcset</code> and <code>sizes</code> attributes work together to deliver the right image for every viewport, ensuring optimal performance."
+    },
+    "picture": {
+      "title": "📸 The &lt;picture&gt; element",
+      "content": "Your editorial control toolkit! Use the <code>&lt;picture&gt;</code> element for art direction and serving different images based on context."
+    },
+    "cloudinary": {
+      "title": "☁️ Using f_auto,q_auto",
+      "content": "Cloudinary automatically serves WebP and AVIF formats to modern browsers, with JPEG fallbacks for older browsers."
+    },
+    "defer": {
+      "title": "🎯 Deferred scripts = faster page loads!",
+      "content": "HTML parses while scripts download in the background, improving perceived performance and user experience."
+    },
+    "lazy": {
+      "title": "📸 Lazy loading can reduce initial page weight by 80%!",
+      "content": "Load images only when they're needed (approaching viewport), dramatically improving initial page load time."
+    },
+    "container": {
+      "title": "📊 Components that adapt to any container!",
+      "content": "Container queries let components respond to their container size, not just viewport size. No more duplicate CSS versions!"
+    },
+    "context": {
+      "title": "🎯 Context-aware components everywhere!",
+      "content": "Build once, use anywhere! Components adapt to their context automatically with container queries."
+    },
+    "prompt": {
+      "title": "🎨 AI prompt engineering matters!",
+      "content": "The type of poem dramatically affects AI image generation results. <strong>Concrete poems</strong> with physical imagery work instantly. <strong>Abstract poems</strong> require iteration and refinement. Key insight: Be specific about what you DON'T want, not just what you do want."
+    },
+    "svg": {
+      "title": "📐 SVG is vector, not raster!",
+      "content": "Unlike JPEG/PNG/WebP, SVG uses <strong>mathematical paths</strong> instead of pixels. This means infinite scalability with tiny file sizes. <strong>Best practices:</strong> Optimize with SVGO, inline small SVGs in HTML, use <code>&lt;img&gt;</code> or CSS background for larger ones. Perfect for logos, icons, and illustrations!"
+    }
+  },
+  // PAGE-SPECIFIC HELP: Shown when user visits a page with bare ?hybit parameter
+  // Format: { "title": "...", "intro": "...", "suggestions": [...] }
+  // Suggestions array: [{ "param": "...", "label": "..." }, ...]
+  "pageHelp": {
+    // Hub page - suggests overview parameters
+    "index.html": {
+      "title": "🔬 HAP's insights available!",
+      "intro": "Hey! I have some cool insights to share on this page. Try these:",
+      "suggestions": [
+        {
+          "param": "stations",
+          "label": "Overview of learning stations"
+        },
+        {
+          "param": "detail",
+          "label": "Performance metrics"
+        }
+      ]
+    },
+    // Station 1: AI Poetry & Images
+    "ai-poetry-images.html": {
+      "title": "🔬 HAP here!",
+      "intro": "I learned so much about AI prompt engineering on this page! Try:",
+      "suggestions": [
+        {
+          "param": "prompt",
+          "label": "AI prompt engineering tips"
+        }
+      ]
+    },
+    // Station 2: Responsive Images
+    "responsive-images.html": {
+      "title": "🔬 HAP here!",
+      "intro": "Prof. Teeters taught me about responsive images! Check out:",
+      "suggestions": [
+        {
+          "param": "srcset",
+          "label": "Responsive image syntax"
+        }
+      ]
+    },
+    // Station 3: Art Direction
+    "art-direction.html": {
+      "title": "🔬 HAP here!",
+      "intro": "This was the station that confused me at first! Learn more:",
+      "suggestions": [
+        {
+          "param": "picture",
+          "label": "Art direction with picture element"
+        }
+      ]
+    },
+    // Station 4: Modern Formats
+    "modern-formats.html": {
+      "title": "🔬 HAP here!",
+      "intro": "Modern image formats are amazing! Explore:",
+      "suggestions": [
+        {
+          "param": "cloudinary",
+          "label": "Modern format optimization"
+        },
+        {
+          "param": "svg",
+          "label": "SVG vector graphics best practices"
+        }
+      ]
+    },
+    // Station 5: Loading Strategies
+    "loading-strategies.html": {
+      "title": "🔬 HAP here!",
+      "intro": "Loading strategies can make sites 80% faster! Try:",
+      "suggestions": [
+        {
+          "param": "lazy",
+          "label": "Lazy loading benefits"
+        },
+        {
+          "param": "defer",
+          "label": "Deferred script loading"
+        }
+      ]
+    },
+    // Station 6: Container Queries
+    "container-queries.html": {
+      "title": "🔬 HAP here!",
+      "intro": "Container queries are game-changing! Check out:",
+      "suggestions": [
+        {
+          "param": "container",
+          "label": "Container queries explained"
+        }
+      ]
+    },
+    // Template page - generic suggestion
+    "template.html": {
+      "title": "🔬 HAP here!",
+      "intro": "Try adding a parameter like <code>?hybit=detail</code> to see my insights!",
+      "suggestions": []
+    }
+  },
+  // DEFAULT MESSAGES: Fallbacks for unknown or empty parameters
+  "defaults": {
+    // Shown when parameter value doesn't match whitelist
+    "unknown": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Nice find! Try different parameters to learn more about web performance and optimization techniques that Prof. Teeters taught me."
+    },
+    // Shown when page has no specific help defined
+    "emptyFallback": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Hey there! Try adding a parameter like <code>?hybit=detail</code> to see what I've learned!"
+    }
+  }
+}

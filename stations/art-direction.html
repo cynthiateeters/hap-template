@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAP's Learning Lab - Art Direction vs Resolution</title>
+    <meta name="description"
+        content="HAP's most confusing station at first! Learn when you need different CROPS not different SIZES with the picture element and art direction.">
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Prism.js syntax highlighting -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Header with HyBit -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Art Direction vs Resolution</h1>
+                    <p class="subtitle">Different Images for Different Screens</p>
+                </div>
+            </div>
+            <div class="intro-box">
+                <p><strong>Welcome to Station 3!</strong> This station was the most confusing for me at first (I
+                    mentioned it in the hub!), but once Prof. Teeters explained art direction vs resolution, it clicked.
+                    Sometimes you need completely different images for different devices – scaling isn't enough! Let me
+                    show you what I learned! 🟠</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Inter-Page Navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="3">Station 3 of 6</div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="content-container">
+
+        <!-- Section 1: The Key Concept -->
+        <section class="content-section">
+            <div class="intro-box">
+                <h2>🎯 HAP's "Aha!" Moment</h2>
+                <p>This confused me at first! Prof. Teeters explained: Resolution switching (Station 2) handles
+                    different <strong>sizes</strong> of the same image. Art
+                    direction handles different <strong>compositions</strong> entirely—changing what's in the frame
+                    based on screen size. Once I understood we needed different CROPS not different SIZES, everything
+                    clicked!</p>
+            </div>
+
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP looking confused while studying" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Big Realization:</h3>
+                    <p>This is the station I mentioned being confused about on the hub page! I kept thinking "Why can't
+                        we just scale the image?" Then Prof. Teeters showed me the tree photo example, and suddenly I
+                        got it – sometimes you need different CROPS, not different SIZES. Mind = blown! 🤯</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Demo -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>See The Problem: Interactive Demo</h2>
+
+                <p class="mb-2">Prof. Teeters showed me this landscape photo by David Lartey (Unsplash). The tree sits
+                    far left, with vast savanna stretching right. On desktop, this composition works beautifully—the
+                    empty space emphasizes isolation, the rule of thirds creates visual tension.</p>
+
+                <p class="mb-2">But when I shrunk this to mobile width, I saw the problem! The tree is lost, pushed off
+                    the
+                    edge. The emotional impact vanishes. You're left with mostly empty grassland.</p>
+
+                <div class="demo-button-container">
+                    <button id="toggleArtDirection" class="demo-button">
+                        Apply Art Direction
+                    </button>
+                    <p id="toggleStatus" class="mt-1 demo-status">
+                        Currently showing: Scaled images (no art direction)
+                    </p>
+                </div>
+
+                <!-- Device Frames Container -->
+                <div class="device-grid">
+
+                    <!-- Desktop Frame -->
+                    <div class="device-frame">
+                        <h3>📸 Desktop (1200px)</h3>
+                        <p class="device-label">16:9 aspect ratio</p>
+                        <div class="aspect-ratio-16-9">
+                            <img id="desktopImg"
+                                src="https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg"
+                                alt="Lone tree landscape - desktop view" class="device-image">
+                        </div>
+                        <p id="desktopCaption" class="device-caption">
+                            Full panoramic view
+                        </p>
+                    </div>
+
+                    <!-- Tablet Frame -->
+                    <div class="device-frame">
+                        <h3>📱 Tablet (768px)</h3>
+                        <p class="device-label">4:3 aspect ratio</p>
+                        <div class="aspect-ratio-4-3">
+                            <img id="tabletImg"
+                                src="https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg"
+                                alt="Lone tree landscape - tablet view" class="device-image">
+                        </div>
+                        <p id="tabletCaption" class="device-caption">
+                            Tree gets smaller
+                        </p>
+                    </div>
+
+                    <!-- Mobile Frame -->
+                    <div class="device-frame">
+                        <h3>📱 Mobile (400px)</h3>
+                        <p class="device-label">9:16 aspect ratio</p>
+                        <div class="aspect-ratio-9-16">
+                            <img id="mobileImg"
+                                src="https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg"
+                                alt="Lone tree landscape - mobile view" class="device-image">
+                        </div>
+                        <p id="mobileCaption" class="device-caption">
+                            Tree is lost!
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🎨 HyBit's Observation</h3>
+                    <p>Toggle the button above to see art direction in action! Without it, the tree—the focal
+                        point—becomes progressively insignificant on smaller screens. With art direction, each screen
+                        shows a different crop that keeps the tree impactful at every size. We're not just scaling—we're
+                        recomposing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Picture Element -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The &lt;picture&gt; Element</h2>
+
+                <p class="mb-2">The <code>&lt;picture&gt;</code> element forces specific crops at
+                    specific breakpoints. Unlike <code>srcset</code> (which lets browsers choose), you're making
+                    editorial decisions about what viewers see.</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Art direction with Cloudinary crops:</div>
+                    <pre><code class="language-html">&lt;picture&gt;
+  &lt;!-- Mobile: AI-centered crop focused on tree --&gt;
+  &lt;source media="(max-width: 640px)"
+          srcset="https://res.cloudinary.com/.../c_fill,w_400,h_711,g_auto:subject/tree.jpg"&gt;
+
+  &lt;!-- Tablet: Fill frame with focus on left (tree) --&gt;
+  &lt;source media="(max-width: 1024px)"
+          srcset="https://res.cloudinary.com/.../c_fill,w_768,h_576,g_west/tree.jpg"&gt;
+
+  &lt;!-- Desktop: Full panoramic view --&gt;
+  &lt;img src="https://res.cloudinary.com/.../tree.jpg"
+       alt="Lone tree in savanna landscape"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>🎯 How It Works</h3>
+                        <p>The browser checks media queries top to bottom. First match wins. The
+                            <code>&lt;img&gt;</code> provides the fallback for larger screens and browsers that don't
+                            support <code>&lt;picture&gt;</code>.
+                        </p>
+                    </div>
+                    <div class="analysis-point">
+                        <h3>📊 Cloudinary Parameters</h3>
+                        <p><code>c_fill</code> = fill frame (no letterboxing)<br>
+                            <code>w_400,h_711</code> = exact dimensions<br>
+                            <code>g_auto:subject</code> = AI detects main subject<br>
+                            <code>g_west</code> = focus on left side
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Decision Framework -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Quick Decision Framework</h2>
+
+                <div class="overview-grid">
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">🎯</span> Need Art Direction When:</h3>
+                        <ul>
+                            <li>Your subject is off-center (like this tree)</li>
+                            <li>Important details become too small on mobile</li>
+                            <li>The composition needs rebalancing for different aspect ratios</li>
+                            <li>Text overlays require different backgrounds</li>
+                        </ul>
+                    </div>
+                    <div class="insight-card">
+                        <h3><span class="insight-icon">📸</span> Stay with srcset When:</h3>
+                        <ul>
+                            <li>Your subject is centered and scales well</li>
+                            <li>The composition works at all sizes</li>
+                            <li>You just need resolution variations</li>
+                            <li>Simplicity is more important than editorial control</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>🟠 Implementation Reality Check</h3>
+                    <p>Art direction means creating multiple versions—not just resizing but actually recomposing.
+                        Cloudinary makes this easier with automatic cropping parameters (<code>c_crop</code>,
+                        <code>g_auto</code>), but you still need to decide what each screen should show.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Common Scenarios -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">
+                    Common Scenarios Beyond Landscapes
+                </h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>E-commerce Product Shots</h3>
+                        <p>Desktop shows product in context (table setting, lifestyle). Mobile crops to product detail
+                            (close-up of texture, features). Customers on phones get the information they need without
+                            squinting.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Portrait Photography</h3>
+                        <p>Desktop displays environmental portrait (subject + background story). Mobile crops to
+                            headshot (face fills frame). The emotional connection stays strong at every size.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Hero Banners with Text</h3>
+                        <p>Desktop uses wide banner with text overlay on right third. Mobile switches to vertical crop
+                            with text area at top. Ensures text remains readable and properly positioned.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Complex Infographics</h3>
+                        <p>Desktop shows full diagram with all connections. Tablet simplifies to key sections. Mobile
+                            breaks into vertical segments. Each screen gets digestible information.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Architecture Photography</h3>
+                        <p>Desktop captures entire building facade. Tablet crops to architectural details. Mobile
+                            focuses on signature elements. Viewers appreciate the design at appropriate detail levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Format Switching Bonus -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Format Switching Bonus</h2>
+
+                <p class="mb-2">While you're using <code>&lt;picture&gt;</code> for art direction, you
+                    can also deliver modern formats:</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Combining art direction + format switching:</div>
+                    <pre><code class="language-html">&lt;picture&gt;
+  &lt;!-- Mobile: Art direction + format options --&gt;
+  &lt;source media="(max-width: 640px)"
+          srcset="mobile-crop.avif"
+          type="image/avif"&gt;
+  &lt;source media="(max-width: 640px)"
+          srcset="mobile-crop.webp"
+          type="image/webp"&gt;
+  &lt;source media="(max-width: 640px)"
+          srcset="mobile-crop.jpg"&gt;
+
+  &lt;!-- Desktop fallback --&gt;
+  &lt;img src="desktop-full.jpg" alt="Description"&gt;
+&lt;/picture&gt;</code></pre>
+                </div>
+
+                <div class="interactive-demo">
+                    <h3>🎨 HyBit's Recommendation</h3>
+                    <p>For most projects with art direction needs, use <strong>Cloudinary with the picture
+                            element</strong>. Cloudinary's crop parameters (<code>c_crop</code>, <code>g_auto</code>,
+                        <code>g_west</code>) make it easy to generate different compositions without manual cropping in
+                        Photoshop. You can even add <code>f_auto</code> to automatically serve WebP/AVIF!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: The Bottom Line -->
+        <section class="content-section">
+            <div class="intro-box">
+                <h3>🎯 The Bottom Line</h3>
+                <p>Most images just need different <strong>sizes</strong> (srcset). But when your composition breaks at
+                    different screen sizes—when important elements get lost—that's when you need <strong>art
+                        direction</strong> with <code>&lt;picture&gt;</code>.</p>
+                <p class="mt-1">For the tree image: Without art direction, mobile users see an empty field
+                    with a speck on the left. With art direction, they see a powerful solitary tree. That's the
+                    difference.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="responsive-images.html" class="nav-link prev-link">← Previous: Station 2 - Responsive Images</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="modern-formats.html" class="nav-link next-link">Next: Station 4 - Modern Formats →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+        <p class="footer-reminder">
+            Remember: Art direction is about editorial control—showing the right story at every screen size! 🟠 — HAP
+        </p>
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Demo JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('toggleArtDirection');
+            const toggleStatus = document.getElementById('toggleStatus');
+            const desktopImg = document.getElementById('desktopImg');
+            const tabletImg = document.getElementById('tabletImg');
+            const mobileImg = document.getElementById('mobileImg');
+            const desktopCaption = document.getElementById('desktopCaption');
+            const tabletCaption = document.getElementById('tabletCaption');
+            const mobileCaption = document.getElementById('mobileCaption');
+
+            let artDirectionActive = false;
+
+            const originalUrls = {
+                desktop: 'https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg',
+                tablet: 'https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg',
+                mobile: 'https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg'
+            };
+
+            const artDirectedUrls = {
+                desktop: 'https://res.cloudinary.com/cynthia-teeters/image/upload/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg',
+                tablet: 'https://res.cloudinary.com/cynthia-teeters/image/upload/c_fill,w_768,h_576,g_west/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg',
+                mobile: 'https://res.cloudinary.com/cynthia-teeters/image/upload/c_fill,w_400,h_711,g_auto:subject/v1759357191/david-lartey-AQc8CF54rVM-unsplash_f53zgz.jpg'
+            };
+
+            toggleBtn.addEventListener('click', function () {
+                artDirectionActive = !artDirectionActive;
+
+                if (artDirectionActive) {
+                    // Apply art direction
+                    desktopImg.src = artDirectedUrls.desktop;
+                    tabletImg.src = artDirectedUrls.tablet;
+                    mobileImg.src = artDirectedUrls.mobile;
+
+                    desktopCaption.textContent = 'Full panoramic - tree on left third';
+                    tabletCaption.textContent = 'Cropped - tree takes left half';
+                    mobileCaption.textContent = 'Tight crop - tree is the subject!';
+
+                    toggleBtn.textContent = 'Remove Art Direction';
+                    toggleStatus.textContent = 'Currently showing: Art-directed crops (editorial control)';
+                    toggleBtn.style.background = 'var(--warm-orange)';
+                } else {
+                    // Remove art direction
+                    desktopImg.src = originalUrls.desktop;
+                    tabletImg.src = originalUrls.tablet;
+                    mobileImg.src = originalUrls.mobile;
+
+                    desktopCaption.textContent = 'Full panoramic view';
+                    tabletCaption.textContent = 'Tree gets smaller';
+                    mobileCaption.textContent = 'Tree is lost!';
+
+                    toggleBtn.textContent = 'Apply Art Direction';
+                    toggleStatus.textContent = 'Currently showing: Scaled images (no art direction)';
+                    toggleBtn.style.background = 'var(--teal-accent)';
+                }
+            });
+        });
+    </script>
+
+    <!-- Prism.js core + HTML language support -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+            integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+            integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+            crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.classList.add('copied');
+                        button.textContent = 'Copied';
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+    <!-- Performance Easter Egg -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!--
+    HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+    HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+    Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+    Visual elements created with AI assistance.
+
+    Image Attribution:
+    Tree photograph by David Lartey on Unsplash
+    https://unsplash.com/photos/a-lone-tree-in-the-middle-of-a-field-AQc8CF54rVM
+    -->
+</body>
+
+</html>
