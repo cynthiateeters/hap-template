@@ -1,14 +1,21 @@
-# HAP's Learning Lab
+# HAP's Learning Lab Template
 
-**Web Development Images Learning Stations**
+**Create Your Own 6-Station Educational Website**
 
-An interactive educational website exploring the intersection of AI image generation, responsive web design, and performance optimization techniques. Join HAP (HyBit A. ProtoBot), Prof. Teeters' apprentice, as he shares what he learned at each station!
+This is a customizable template for creating HAP Learning Lab educational websites. Build your own interactive learning experience with 6 stations covering any web development topic. HAP (HyBit A. ProtoBot™), Prof. Teeters' apprentice, will guide students through your stations with his friendly first-person narrative.
 
 ## Overview
 
-HAP's Learning Lab is a collection of 6 interactive learning stations designed to teach modern web development concepts through hands-on examples and real-world demonstrations. Each station focuses on a specific aspect of working with images on the web, from AI prompt engineering to container queries.
+This template provides a complete foundation for building HAP Learning Labs - collections of 6 interactive learning stations that teach web development concepts through hands-on examples. The template includes:
 
-HAP, an AI apprentice learning from Prof. Teeters, guides you through each station with a friendly, first-person narrative that makes complex concepts approachable.
+- 6 pre-built station HTML files (`station1.html` through `station6.html`) with placeholder content
+- Complete HAP branding and character integration
+- Easter egg system for contextual learning tips
+- Production-tested CSS, JavaScript, and configuration files
+- Lighthouse testing infrastructure
+- Zero dependencies - pure HTML/CSS/JavaScript
+
+Simply customize the placeholder content with your educational material, and you'll have a professional learning lab ready to deploy.
 
 ## Quick start
 
@@ -38,101 +45,80 @@ Open `index.html` directly in your browser. Note: Some features (like JSON loadi
 ### Project structure
 
 ```
-poem-images/
-├── index.html              # Hub page with station overview
+hap-template/
+├── index.html              # Hub page (customize with your stations)
 ├── stations/
-│   ├── ai-poetry-images.html   # Station 1: AI & Poetry
-│   ├── responsive-images.html  # Station 2: Responsive Images
-│   ├── art-direction.html      # Station 3: Art Direction
-│   ├── modern-formats.html     # Station 4: Modern Formats
-│   ├── loading-strategies.html # Station 5: Loading Strategies
-│   └── container-queries.html  # Station 6: Container Queries
+│   ├── station1.html       # Template for Station 1
+│   ├── station2.html       # Template for Station 2
+│   ├── station3.html       # Template for Station 3
+│   ├── station4.html       # Template for Station 4
+│   ├── station5.html       # Template for Station 5
+│   └── station6.html       # Template for Station 6
 ├── css/
-│   └── style.css          # All site styles
+│   ├── style.css           # Production-tested HAP styles
+│   └── prism-hap-theme.css # Syntax highlighting theme
 ├── js/
-│   └── easter-egg.js      # HAP Insights easter egg
+│   └── easter-egg.js       # HAP Insights easter egg system
 ├── data/
-│   ├── hybit-insights.jsonc  # Easter egg content (HAP's insights)
-│   └── README.md          # Data file documentation
-├── LICENSE                # MIT License (code only)
-├── TRADEMARK.md           # HAP™ character rights
-└── CONTENT-LICENSE.md     # Educational content license
-
+│   ├── hybit-insights.jsonc  # Easter egg content (customize)
+│   └── README.md           # Easter egg documentation
+├── docs/
+│   ├── style-guide.md      # HAP style guide
+│   └── lighthouse-tutorial.md  # Testing guide
+├── reports/                # Generated Lighthouse reports
+├── package.json            # Lighthouse testing scripts
+├── lighthouserc.json       # Lighthouse CI configuration
+├── LICENSE                 # MIT License (code)
+├── TRADEMARK.md            # HAP™ character rights
+└── CONTENT-LICENSE.md      # Educational content license
 ```
 
-## Learning stations
+## Customizing your learning lab
 
-### Station 1: AI poetry & images
+### Step 1: Define your 6 stations
 
-**Focus:** How AI interprets abstract vs concrete poetry
+Decide what 6 web development topics you want to teach. Each station should focus on a specific concept with hands-on examples.
 
-Learn about prompt engineering through practical examples of generating images for different types of poetry. Discover why concrete poems work instantly while abstract poems require iteration.
+**Example topics:**
+- Web fonts and typography
+- CSS Grid layouts
+- JavaScript APIs
+- Accessibility testing
+- Performance optimization
+- Modern CSS features
 
-**Key concepts:**
+### Step 2: Customize station files
 
-- Prompt specificity
-- Negative prompts
-- Iterative refinement
+Each `station1.html` through `station6.html` file contains placeholders like:
 
-### Station 2: responsive image syntax
+- `[STATION_TITLE]` - Your station's title
+- `[SUBTITLE]` - Brief description
+- `[BRIEF_DESCRIPTION]` - For meta description
+- `[HAP's apprentice voice introduction]` - HAP's first-person narrative
+- `[SECTION_HEADING]` - Main section titles
+- `[Content sections]` - Your educational content
 
-**Focus:** Deep dive into srcset and sizes attributes
+**Search and replace these placeholders** with your content while maintaining HAP's apprentice voice.
 
-Master the syntax and behavior of responsive images. Understand how browsers choose which image to download based on viewport size and pixel density.
+### Step 3: Update the hub page
 
-**Key concepts:**
+Edit `index.html` to:
+- Update the hub introduction with your learning lab's theme
+- Add descriptions for your 6 stations
+- Update navigation links if you rename station files
 
-- `srcset` with width descriptors
-- `sizes` attribute
-- Browser selection algorithm
+### Step 4: Customize HAP Insights
 
-### Station 3: art direction vs resolution
+Edit `data/hybit-insights.jsonc` to add contextual learning tips for your topics. See `data/README.md` for detailed instructions.
 
-**Focus:** When to crop vs when to scale
+### Step 5: Test with Lighthouse
 
-Learn the difference between art direction (different crops for different sizes) and resolution switching (same image, different resolutions).
+```bash
+npm install
+npm run lh:ci
+```
 
-**Key concepts:**
-
-- `<picture>` element
-- `<source>` with media queries
-- Art direction use cases
-
-### Station 4: modern image formats
-
-**Focus:** JPEG, PNG, WebP, and AVIF comparison
-
-See real file size comparisons and browser support data for modern image formats. Understand when to use which format.
-
-**Key concepts:**
-
-- Format capabilities
-- Compression comparison
-- Progressive enhancement
-
-### Station 5: loading strategies
-
-**Focus:** Lazy loading, eager loading, and priority hints
-
-Optimize when and how images load on your pages. Learn about `loading="lazy"`, `fetchpriority`, and deferred script loading.
-
-**Key concepts:**
-
-- Lazy loading (80% reduction)
-- Priority hints
-- Script loading strategies
-
-### Station 6: container queries
-
-**Focus:** Component-based responsive images
-
-Future-proof techniques for making components adapt to their container size, not just viewport size.
-
-**Key concepts:**
-
-- Container queries syntax
-- Component-aware design
-- Context adaptation
+This runs automated testing on all 6 stations plus the hub page.
 
 ## Easter egg feature
 
@@ -148,19 +134,18 @@ index.html?hybit=detail       # Shows Lighthouse score
 responsive-images.html?hybit=srcset  # Shows srcset explanation
 ```
 
-### Available parameters
+### Available parameters (customize these!)
 
-| Parameter | Shows | Best on |
-|-----------|-------|---------|
+The template includes example parameters you should customize for your learning lab:
+
+| Parameter | Shows | Example Use |
+|-----------|-------|-------------|
 | `detail` | Lighthouse Score: 99% | Any page |
 | `stations` | Learning stations overview | Hub |
-| `srcset` | Responsive image syntax | Station 2 |
-| `picture` | Picture element | Station 3 |
-| `cloudinary` | CDN optimization | Station 4 |
-| `lazy` | Lazy loading benefits | Station 5 |
-| `defer` | Deferred scripts | Station 5 |
-| `container` | Container queries | Station 6 |
-| `prompt` | AI prompt engineering | Station 1 |
+| `example1` | Your topic 1 insight | Station 1 |
+| `example2` | Your topic 2 insight | Station 2 |
+
+**To customize:** Edit `data/hybit-insights.jsonc` and replace example parameters with ones relevant to your stations.
 
 ### For instructors
 
@@ -219,15 +204,26 @@ Parameters used:
 - `q_auto` - Automatic quality optimization
 - `w_600` - Width constraint (responsive)
 
-### Adding new stations
+### Renaming station files (optional)
 
-1. Copy `template.html` to `new-station.html`
-2. Update page title, meta description, and og:image
-3. Replace `[HAP_INTRO]` with HAP's apprentice voice introduction
-4. Fill in station content with HAP's narrative
-5. Add HAP Insights parameter (see `data/README.md`)
-6. Update `index.html` hub page with link to new station
-7. Add to this README's station list
+You can keep the numbered naming (`station1.html`) or rename to descriptive names:
+
+**Option A: Keep numbered** (recommended for easier template updates)
+```
+station1.html, station2.html, etc.
+```
+
+**Option B: Rename to descriptive**
+```bash
+mv stations/station1.html stations/web-fonts.html
+mv stations/station2.html stations/css-grid.html
+# etc.
+```
+
+If you rename, also update:
+- Navigation links in each station file
+- URLs in `lighthouserc.json`
+- Links in `index.html`
 
 ## File organization
 

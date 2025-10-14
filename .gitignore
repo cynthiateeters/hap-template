@@ -111,3 +111,5 @@ CLAUDE.md
 # Reports folder (generated content)
 reports/
 images/svg-id-tag/
+
+.lighthouseci

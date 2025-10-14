@@ -1,88 +1,80 @@
 {
   // =============================================================================
-  // HAP's Learning Lab - Insights Data File (JSONC - JSON with Comments)
+  // HAP's Learning Lab Template - Insights Data File (JSONC - JSON with Comments)
   // =============================================================================
   // This file contains all educational insights displayed by the HyBit easter egg
   // when students add ?hybit parameters to URLs.
+  //
+  // CUSTOMIZE THIS FILE for your learning lab by:
+  // 1. Adding your own parameter names to "allowedParams"
+  // 2. Creating messages for each parameter in "messages" object
+  // 3. Updating page-specific help in "pageHelp" section
   //
   // SECURITY: All content here is pre-defined and sanitized. The JavaScript
   // validates parameters against the allowedParams whitelist before displaying
   // any messages. User input is NEVER directly inserted into HTML.
   //
-  // HOW TO ADD A NEW INSIGHT:
-  // 1. Add the parameter name to "allowedParams" array below
-  // 2. Add the message to "messages" object with title and content
-  // 3. Optionally add page-specific help in "pageHelp" section
+  // COMPLETE DOCUMENTATION: See data/README.md for detailed instructions
   // =============================================================================
-  // WHITELIST: Only these parameter values will trigger specific messages
-  // Any other value will show the generic "unknown" message
+
+  // CUSTOMIZE: Add your own parameter names here (lowercase, alphanumeric only)
   "allowedParams": [
-    "detail", // Lighthouse performance score
-    "stations", // Learning lab overview
-    "srcset", // Responsive images syntax
-    "picture", // Art direction with picture element
-    "cloudinary", // CDN optimization techniques
-    "defer", // Script loading strategies
-    "lazy", // Lazy loading benefits
-    "container", // Container queries
-    "context", // Context-aware components
-    "prompt", // AI prompt engineering (Station 1)
-    "svg" // SVG vector graphics (Station 4)
+    "detail",       // Lighthouse performance score (keep this one!)
+    "stations",     // Learning lab overview (keep this one!)
+    "example1",     // Replace with your Station 1 insight parameter
+    "example2",     // Replace with your Station 2 insight parameter
+    "example3",     // Replace with your Station 3 insight parameter
+    "example4",     // Replace with your Station 4 insight parameter
+    "example5",     // Replace with your Station 5 insight parameter
+    "example6"      // Replace with your Station 6 insight parameter
   ],
-  // INSIGHT MESSAGES: Full educational content for each parameter
+
+  // CUSTOMIZE: Create messages for each parameter in allowedParams
   // Format: { "title": "...", "content": "..." }
-  // HTML is allowed in content (code tags, strong, em, etc.)
+  // You can use HTML tags: <code>, <strong>, <em>, <br>
   "messages": {
+    // Keep these two default messages:
     "detail": {
       "title": "🚀 Lighthouse Score: 99%!",
       "content": "This site is optimized for instant loading with modern web performance techniques."
     },
     "stations": {
       "title": "🔬 Learning Stations",
-      "content": "Explore 6 interactive stations covering visual AI, responsive images, modern formats, and web performance optimization."
+      "content": "Explore 6 interactive stations covering [YOUR TOPICS]. HAP guides you through hands-on examples and practical demonstrations."
     },
-    "srcset": {
-      "title": "📱 Perfect image for every screen",
-      "content": "The <code>srcset</code> and <code>sizes</code> attributes work together to deliver the right image for every viewport, ensuring optimal performance."
+
+    // CUSTOMIZE: Replace these examples with your own insights
+    "example1": {
+      "title": "🎨 [Your Station 1 Insight Title]",
+      "content": "Replace this with educational content about your Station 1 topic. Use <code>code tags</code> for technical terms and <strong>bold</strong> for emphasis."
     },
-    "picture": {
-      "title": "📸 The &lt;picture&gt; element",
-      "content": "Your editorial control toolkit! Use the <code>&lt;picture&gt;</code> element for art direction and serving different images based on context."
+    "example2": {
+      "title": "📱 [Your Station 2 Insight Title]",
+      "content": "Replace this with educational content about your Station 2 topic. Keep it concise and in HAP's friendly apprentice voice!"
     },
-    "cloudinary": {
-      "title": "☁️ Using f_auto,q_auto",
-      "content": "Cloudinary automatically serves WebP and AVIF formats to modern browsers, with JPEG fallbacks for older browsers."
+    "example3": {
+      "title": "🎬 [Your Station 3 Insight Title]",
+      "content": "Replace this with educational content about your Station 3 topic. Share what HAP learned from Prof. Teeters!"
     },
-    "defer": {
-      "title": "🎯 Deferred scripts = faster page loads!",
-      "content": "HTML parses while scripts download in the background, improving perceived performance and user experience."
+    "example4": {
+      "title": "📸 [Your Station 4 Insight Title]",
+      "content": "Replace this with educational content about your Station 4 topic. Include practical tips students can use."
     },
-    "lazy": {
-      "title": "📸 Lazy loading can reduce initial page weight by 80%!",
-      "content": "Load images only when they're needed (approaching viewport), dramatically improving initial page load time."
+    "example5": {
+      "title": "⚡ [Your Station 5 Insight Title]",
+      "content": "Replace this with educational content about your Station 5 topic. Make complex concepts approachable!"
     },
-    "container": {
-      "title": "📊 Components that adapt to any container!",
-      "content": "Container queries let components respond to their container size, not just viewport size. No more duplicate CSS versions!"
-    },
-    "context": {
-      "title": "🎯 Context-aware components everywhere!",
-      "content": "Build once, use anywhere! Components adapt to their context automatically with container queries."
-    },
-    "prompt": {
-      "title": "🎨 AI prompt engineering matters!",
-      "content": "The type of poem dramatically affects AI image generation results. <strong>Concrete poems</strong> with physical imagery work instantly. <strong>Abstract poems</strong> require iteration and refinement. Key insight: Be specific about what you DON'T want, not just what you do want."
-    },
-    "svg": {
-      "title": "📐 SVG is vector, not raster!",
-      "content": "Unlike JPEG/PNG/WebP, SVG uses <strong>mathematical paths</strong> instead of pixels. This means infinite scalability with tiny file sizes. <strong>Best practices:</strong> Optimize with SVGO, inline small SVGs in HTML, use <code>&lt;img&gt;</code> or CSS background for larger ones. Perfect for logos, icons, and illustrations!"
+    "example6": {
+      "title": "📦 [Your Station 6 Insight Title]",
+      "content": "Replace this with educational content about your Station 6 topic. Use HAP's enthusiastic learning perspective."
     }
   },
-  // PAGE-SPECIFIC HELP: Shown when user visits a page with bare ?hybit parameter
+
+  // CUSTOMIZE: Update page-specific help for each station file
+  // This appears when users visit a page with bare ?hybit parameter (no value)
   // Format: { "title": "...", "intro": "...", "suggestions": [...] }
-  // Suggestions array: [{ "param": "...", "label": "..." }, ...]
   "pageHelp": {
-    // Hub page - suggests overview parameters
+    // Hub page - keep this one
     "index.html": {
       "title": "🔬 HAP's insights available!",
       "intro": "Hey! I have some cool insights to share on this page. Try these:",
@@ -97,93 +89,77 @@
         }
       ]
     },
-    // Station 1: AI Poetry & Images
-    "ai-poetry-images.html": {
+
+    // CUSTOMIZE: Update for each of your station files
+    // If you renamed from station1.html to custom names, update the keys below
+    "station1.html": {
       "title": "🔬 HAP here!",
-      "intro": "I learned so much about AI prompt engineering on this page! Try:",
+      "intro": "I learned so much about [YOUR TOPIC] on this page! Try:",
       "suggestions": [
         {
-          "param": "prompt",
-          "label": "AI prompt engineering tips"
+          "param": "example1",
+          "label": "[Brief description of your insight]"
         }
       ]
     },
-    // Station 2: Responsive Images
-    "responsive-images.html": {
+    "station2.html": {
       "title": "🔬 HAP here!",
-      "intro": "Prof. Teeters taught me about responsive images! Check out:",
+      "intro": "Prof. Teeters taught me about [YOUR TOPIC]! Check out:",
       "suggestions": [
         {
-          "param": "srcset",
-          "label": "Responsive image syntax"
+          "param": "example2",
+          "label": "[Brief description of your insight]"
         }
       ]
     },
-    // Station 3: Art Direction
-    "art-direction.html": {
+    "station3.html": {
       "title": "🔬 HAP here!",
       "intro": "This was the station that confused me at first! Learn more:",
       "suggestions": [
         {
-          "param": "picture",
-          "label": "Art direction with picture element"
+          "param": "example3",
+          "label": "[Brief description of your insight]"
         }
       ]
     },
-    // Station 4: Modern Formats
-    "modern-formats.html": {
+    "station4.html": {
       "title": "🔬 HAP here!",
-      "intro": "Modern image formats are amazing! Explore:",
+      "intro": "[YOUR TOPIC] is amazing! Explore:",
       "suggestions": [
         {
-          "param": "cloudinary",
-          "label": "Modern format optimization"
-        },
-        {
-          "param": "svg",
-          "label": "SVG vector graphics best practices"
+          "param": "example4",
+          "label": "[Brief description of your insight]"
         }
       ]
     },
-    // Station 5: Loading Strategies
-    "loading-strategies.html": {
+    "station5.html": {
       "title": "🔬 HAP here!",
-      "intro": "Loading strategies can make sites 80% faster! Try:",
+      "intro": "[YOUR TOPIC] techniques can transform your sites! Try:",
       "suggestions": [
         {
-          "param": "lazy",
-          "label": "Lazy loading benefits"
-        },
-        {
-          "param": "defer",
-          "label": "Deferred script loading"
+          "param": "example5",
+          "label": "[Brief description of your insight]"
         }
       ]
     },
-    // Station 6: Container Queries
-    "container-queries.html": {
+    "station6.html": {
       "title": "🔬 HAP here!",
-      "intro": "Container queries are game-changing! Check out:",
+      "intro": "[YOUR TOPIC] is game-changing! Check out:",
       "suggestions": [
         {
-          "param": "container",
-          "label": "Container queries explained"
+          "param": "example6",
+          "label": "[Brief description of your insight]"
         }
       ]
-    },
-    // Template page - generic suggestion
-    "template.html": {
-      "title": "🔬 HAP here!",
-      "intro": "Try adding a parameter like <code>?hybit=detail</code> to see my insights!",
-      "suggestions": []
     }
   },
-  // DEFAULT MESSAGES: Fallbacks for unknown or empty parameters
+
+  // DEFAULT MESSAGES: Keep these unchanged - they provide fallback behavior
   "defaults": {
     // Shown when parameter value doesn't match whitelist
     "unknown": {
       "title": "🎯 You discovered HAP's insights!",
-      "content": "Nice find! Try different parameters to learn more about web performance and optimization techniques that Prof. Teeters taught me."
+      "content": "Nice find! Try different parameters to learn more about the topics Prof. Teeters taught me."
     },
     // Shown when page has no specific help defined
     "emptyFallback": {

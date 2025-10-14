@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+    ╔══════════════════════════════════════════════════════════════════════════╗
+    ║                  HAP's Learning Lab Template - Hub Page                  ║
+    ║                                                                          ║
+    ║  CUSTOMIZE THIS FILE to create your own HAP Learning Lab!               ║
+    ║                                                                          ║
+    ║  Key sections to update:                                                ║
+    ║  1. Meta tags (lines 10-31): Update title, description, and og:image    ║
+    ║  2. Header content (lines 58-76): Update learning lab theme             ║
+    ║  3. About section (lines 85-145): Customize learning approach text      ║
+    ║  4. Station cards (lines 180-229): Link to your 6 station files         ║
+    ║                                                                          ║
+    ║  TIP: Search for "CUSTOMIZE" comments throughout this file              ║
+    ║       to find sections that need your attention.                        ║
+    ╚══════════════════════════════════════════════════════════════════════════╝
+-->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAP's Learning Lab - Web Images Hub</title>
+
+    <!-- CUSTOMIZE: Update with your learning lab's theme -->
+    <title>HAP's Learning Lab - [YOUR THEME] Hub</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16"
@@ -19,12 +37,12 @@
     <!-- Performance: speed up first image request -->
     <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
 
-    <!-- Basic SEO / Social preview -->
+    <!-- CUSTOMIZE: Update meta descriptions with your learning lab's content -->
     <meta name="description"
-        content="HAP's Learning Lab: Join HAP (HyBit A. ProtoBot) as he learns about visual AI, responsive images, Cloudinary optimization, and performance audits.">
-    <meta property="og:title" content="HAP's Learning Lab - Web Images Hub">
+        content="HAP's Learning Lab: Join HAP (HyBit A. ProtoBot) as he learns about [YOUR TOPICS]. Six interactive learning stations.">
+    <meta property="og:title" content="HAP's Learning Lab - [YOUR THEME] Hub">
     <meta property="og:description"
-        content="Six learning stations where HAP, Prof. Teeters' apprentice, shares practical demos on AI imagery, modern formats, art direction, and Lighthouse performance.">
+        content="Six learning stations where HAP, Prof. Teeters' apprentice, shares practical demos on [YOUR TOPICS].">
     <meta property="og:type" content="website">
     <meta property="og:image"
         content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
@@ -55,8 +73,9 @@
                         fetchpriority="high">
                 </div>
                 <div>
+                    <!-- CUSTOMIZE: Update with your learning lab's theme -->
                     <h1>HAP's Learning Lab</h1>
-                    <p class="subtitle">Web Images Learning Stations</p>
+                    <p class="subtitle">[YOUR THEME] Learning Stations</p>
                 </div>
             </div>
             <div class="intro-box">
@@ -173,56 +192,57 @@
             </section>
 
             <!-- Learning Stations Grid -->
+            <!-- CUSTOMIZE: Update all 6 station cards below with your topics and links -->
             <section class="content-section">
                 <h2 class="section-heading-centered">Learning Stations</h2>
                 <div class="overview-grid">
 
-                    <!-- Station 1: AI Poetry & Images -->
-                    <a href="stations/ai-poetry-images.html" class="insight-card station-card-link">
-                        <h3><span class="insight-icon">🎨</span> Station 1: AI Poetry & Images</h3>
-                        <p><strong>Focus:</strong> How AI interprets abstract vs concrete poetry</p>
-                        <p class="station-description">Explore prompt engineering through poetry case studies.</p>
+                    <!-- CUSTOMIZE: Station 1 -->
+                    <!-- Update href to match your station file (station1.html or custom name) -->
+                    <a href="stations/station1.html" class="insight-card station-card-link">
+                        <h3><span class="insight-icon">🎨</span> Station 1: [YOUR TOPIC]</h3>
+                        <p><strong>Focus:</strong> [Brief focus statement]</p>
+                        <p class="station-description">[Short description of what students will learn]</p>
                         <p class="station-cta">→ Visit Station 1</p>
                     </a>
 
-                    <!-- Station 2: Responsive Images -->
-                    <a href="stations/responsive-images.html" class="insight-card station-card-link">
-                        <h3><span class="insight-icon">📱</span> Station 2: Responsive Image Syntax</h3>
-                        <p><strong>Focus:</strong> Deep dive into srcset and sizes attributes</p>
-                        <p class="station-description">Master responsive image syntax for every screen size.</p>
+                    <!-- CUSTOMIZE: Station 2 -->
+                    <a href="stations/station2.html" class="insight-card station-card-link">
+                        <h3><span class="insight-icon">📱</span> Station 2: [YOUR TOPIC]</h3>
+                        <p><strong>Focus:</strong> [Brief focus statement]</p>
+                        <p class="station-description">[Short description of what students will learn]</p>
                         <p class="station-cta">→ Visit Station 2</p>
                     </a>
 
-                    <!-- Station 3: Art Direction -->
-                    <a href="stations/art-direction.html" class="insight-card station-card-link">
-                        <h3><span class="insight-icon">🎬</span> Station 3: Art Direction vs Resolution</h3>
-                        <p><strong>Focus:</strong> When to crop vs when to scale</p>
-                        <p class="station-description">Learn the difference between art direction and resolution
-                            switching.</p>
+                    <!-- CUSTOMIZE: Station 3 -->
+                    <a href="stations/station3.html" class="insight-card station-card-link">
+                        <h3><span class="insight-icon">🎬</span> Station 3: [YOUR TOPIC]</h3>
+                        <p><strong>Focus:</strong> [Brief focus statement]</p>
+                        <p class="station-description">[Short description of what students will learn]</p>
                         <p class="station-cta">→ Visit Station 3</p>
                     </a>
 
-                    <!-- Station 4: Modern Formats -->
-                    <a href="stations/modern-formats.html" class="insight-card station-card-link">
-                        <h3><span class="insight-icon">📸</span> Station 4: Modern Image Formats</h3>
-                        <p><strong>Focus:</strong> JPEG, PNG, WebP, and AVIF comparison</p>
-                        <p class="station-description">See real file size differences and browser support data.</p>
+                    <!-- CUSTOMIZE: Station 4 -->
+                    <a href="stations/station4.html" class="insight-card station-card-link">
+                        <h3><span class="insight-icon">📸</span> Station 4: [YOUR TOPIC]</h3>
+                        <p><strong>Focus:</strong> [Brief focus statement]</p>
+                        <p class="station-description">[Short description of what students will learn]</p>
                         <p class="station-cta">→ Visit Station 4</p>
                     </a>
 
-                    <!-- Station 5: Loading Strategies -->
-                    <a href="stations/loading-strategies.html" class="insight-card station-card-link">
-                        <h3><span class="insight-icon">⚡</span> Station 5: Loading Strategies</h3>
-                        <p><strong>Focus:</strong> Lazy loading, eager loading, and priority hints</p>
-                        <p class="station-description">Optimize when and how images load on your pages.</p>
+                    <!-- CUSTOMIZE: Station 5 -->
+                    <a href="stations/station5.html" class="insight-card station-card-link">
+                        <h3><span class="insight-icon">⚡</span> Station 5: [YOUR TOPIC]</h3>
+                        <p><strong>Focus:</strong> [Brief focus statement]</p>
+                        <p class="station-description">[Short description of what students will learn]</p>
                         <p class="station-cta">→ Visit Station 5</p>
                     </a>
 
-                    <!-- Station 6: Container Queries -->
-                    <a href="stations/container-queries.html" class="insight-card station-card-link">
-                        <h3><span class="insight-icon">📦</span> Station 6: Container Queries</h3>
-                        <p><strong>Focus:</strong> Component-based responsive images</p>
-                        <p class="station-description">Future-proof techniques for component-aware images.</p>
+                    <!-- CUSTOMIZE: Station 6 -->
+                    <a href="stations/station6.html" class="insight-card station-card-link">
+                        <h3><span class="insight-icon">📦</span> Station 6: [YOUR TOPIC]</h3>
+                        <p><strong>Focus:</strong> [Brief focus statement]</p>
+                        <p class="station-description">[Short description of what students will learn]</p>
                         <p class="station-cta">→ Visit Station 6</p>
                     </a>
 

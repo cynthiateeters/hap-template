@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Only activate if hybit parameter exists
     if (hybitParam !== null) {
-        // Determine base path (handles trailing slash in URL)
+        // Determine base path - go up one level from stations/ to reach data/
         const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-        const jsonPath = basePath + 'data/hybit-insights.jsonc';
+        const jsonPath = basePath + '../data/hybit-insights.jsonc';
 
         // Load insights data from JSONC (JSON with Comments)
         fetch(jsonPath)
