@@ -9,11 +9,18 @@ Get your HAP Learning Lab customized and deployed in under 30 minutes using Clau
 - Text editor or IDE
 - Claude Code access
 
-## Step 1: Clone or download the template
+## Step 1: Clone the template and create your new repository
 
 ```bash
+# Clone the template
 git clone https://github.com/yourusername/hap-template.git my-learning-lab
 cd my-learning-lab
+
+# Remove the template's git history
+rm -rf .git
+
+# Initialize a fresh repository for your project
+git init -b main
 ```
 
 ## Step 2: Install dependencies
@@ -95,10 +102,9 @@ Open `http://localhost:8000` and verify:
 - Easter egg works (try `?hybit`)
 - Code syntax highlighting works
 
-## Step 6: Create git repository
+## Step 6: Create your first commit
 
 ```bash
-git init -b main
 git add .
 git commit -m "Initial customization of HAP Learning Lab for [YOUR THEME]"
 ```
@@ -110,11 +116,13 @@ Choose your hosting platform:
 ### GitHub Pages (recommended)
 
 ```bash
-# Create repo on GitHub first, then:
-git remote add origin https://github.com/yourusername/your-repo.git
+# 1. Create a NEW repository on GitHub (do not initialize with README)
+# 2. Connect your local repository to GitHub:
+git remote add origin https://github.com/yourusername/your-new-repo.git
 git push -u origin main
 
-# Enable GitHub Pages in repo settings
+# 3. Enable GitHub Pages in repository settings:
+#    Settings → Pages → Source: Deploy from branch (main)
 ```
 
 ### Netlify
