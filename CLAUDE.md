@@ -571,6 +571,80 @@ See README.md:356-406 for complete license explanation.
 - Do not create derivative HAP characters
 - Maintain attribution for educational methodology
 
+## Template improvement tracking
+
+**CRITICAL for new projects**: When using this template to create a new HAP Learning Lab, log ALL changes made to template infrastructure files in `TEMPLATE-CHANGELOG.md`.
+
+### What to log
+
+**Template files** (infrastructure - MUST be logged):
+
+- `.claude/skills/` - All Claude Skills
+- `css/style.css` - HAP design system
+- `css/prism-hap-theme.css` - Syntax highlighting
+- `js/easter-egg.js` - Easter egg system
+- `templates/` - All template files
+- `CLAUDE.md` - Project documentation
+- `data/README.md` - Easter egg documentation
+- Any new infrastructure files created
+
+**Content files** (DO NOT log - these naturally vary by topic):
+
+- `stations/*.html` - Station content
+- `index.html` - Hub page content
+- `demos/*.html` - Demo content
+- `data/hybit-insights.jsonc` - Easter egg messages
+- Images and media files
+
+### When to log changes
+
+**Log immediately when you**:
+
+1. Fix a bug in a Skill
+2. Add a detection rule to a Skill
+3. Modify CSS for responsive design issues
+4. Update easter egg system JavaScript
+5. Improve template files
+6. Update CLAUDE.md documentation
+7. Create new infrastructure patterns
+
+**Example scenarios requiring logging**:
+
+- You discover HAP's voice skill doesn't catch "you should" pattern → Log the fix
+- You find code blocks overflow on mobile → Log the CSS change
+- You add a new reusable component to style.css → Log the enhancement
+- You improve the easter egg loading logic → Log the change
+
+### How to log changes
+
+Use the format in `TEMPLATE-CHANGELOG.md`:
+
+```markdown
+### 2025-11-04 - .claude/skills/hap-voice/SKILL.md
+
+**Type**: Enhancement
+
+**Reason**: Found HAP using "you should" in Station 3 that skill didn't catch
+
+**Change**: Added "you should" to forbidden patterns with detection rule
+
+**Benefit**: Prevents instructional voice in HAP's apprentice narrative
+
+**Consider for template**: Yes - Common mistake, should be caught automatically
+```
+
+### Why this matters
+
+**Purpose**: Continuous template improvement through real-world usage
+
+- Identify patterns in fixes (same issue across projects = template problem)
+- Capture enhancements discovered during development
+- Build case for adding features to base template
+- Share learnings across HAP Learning Lab projects
+- Improve Skills based on what they miss in practice
+
+**Analysis**: After project completion, review `TEMPLATE-CHANGELOG.md` to identify template improvements that would benefit all future projects.
+
 ## Contact and support
 
 This is an educational project by Prof. Cynthia Teeters demonstrating AI-enhanced teaching methods.
