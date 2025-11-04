@@ -73,6 +73,29 @@ hap-template/
 └── CONTENT-LICENSE.md      # Educational content license
 ```
 
+## Example station
+
+**`stations/station6-example.html`** is a complete, fully-realized example station demonstrating all patterns in action:
+
+- **Proper HAP voice** - First-person apprentice perspective throughout
+- **Complete structure** - All 6 required sections in correct order
+- **Working code examples** - Tested, copy-paste ready CSS
+- **Interactive elements** - Challenge with solution reveal button
+- **Before/after comparison** - Shows HAP's learning journey
+- **HAP note callout** - Personal story with Prof. Teeters
+- **Copy buttons** - All code blocks are copyable
+- **Quick Reference** - 6 practical tips
+
+**Use this example as your reference** when creating your own stations. Compare your stations to this example to ensure consistency in structure, voice, and interactivity.
+
+The example covers "Responsive Design" - a universal topic that demonstrates how to:
+- Write realistic HAP voice (not placeholder text)
+- Structure before/after code comparisons
+- Create interactive challenges with solutions
+- Use HAP note callouts effectively
+- Maintain consistent heading hierarchy
+- Include proper accessibility attributes
+
 ## Customizing your learning lab
 
 ### Step 1: Define your 6 stations

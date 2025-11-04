@@ -3,13 +3,34 @@
   "version": "1.0.0",
   "description": "HAP Learning Lab template with 6 customizable stations",
   "scripts": {
-    "lh": "lighthouse --view",
-    "lh:desktop": "npm run lh -- --preset=desktop",
-    "lh:mobile": "npm run lh -- --preset=mobile",
-    "lh:html": "npm run lh -- --output html --output-path reports/lh-report.html",
-    "lh:json": "npm run lh -- --output json --output-path reports/lh-report.json",
-    "lh:csv": "npm run lh -- --output csv --output-path reports/lh-report.csv",
-    "lh:ci": "lhci autorun"
+    "_comment_basic": "=== Basic Lighthouse audits (all categories) ===",
+    "lh": "lighthouse http://localhost:5500 --view",
+    "lh:desktop": "lighthouse http://localhost:5500 --preset=desktop --view",
+    "lh:mobile": "lighthouse http://localhost:5500 --preset=mobile --view",
+
+    "_comment_category": "=== Category-specific audits (test one concern at a time) ===",
+    "lh:accessibility": "lighthouse http://localhost:5500 --only-categories=accessibility --view",
+    "lh:performance": "lighthouse http://localhost:5500 --only-categories=performance --view",
+    "lh:best-practices": "lighthouse http://localhost:5500 --only-categories=best-practices --view",
+    "lh:seo": "lighthouse http://localhost:5500 --only-categories=seo --view",
+
+    "_comment_station": "=== Per-station audits (test individual pages) ===",
+    "lh:station1": "lighthouse http://localhost:5500/stations/station1.html --view",
+    "lh:station2": "lighthouse http://localhost:5500/stations/station2.html --view",
+    "lh:station3": "lighthouse http://localhost:5500/stations/station3.html --view",
+    "lh:station4": "lighthouse http://localhost:5500/stations/station4.html --view",
+    "lh:station5": "lighthouse http://localhost:5500/stations/station5.html --view",
+    "lh:station6": "lighthouse http://localhost:5500/stations/station6.html --view",
+
+    "_comment_output": "=== Report output formats ===",
+    "lh:html": "lighthouse http://localhost:5500 --output html --output-path reports/lh-report.html --view",
+    "lh:json": "lighthouse http://localhost:5500 --output json --output-path reports/lh-report.json",
+    "lh:csv": "lighthouse http://localhost:5500 --output csv --output-path reports/lh-report.csv",
+
+    "_comment_ci": "=== CI/CD testing ===",
+    "lh:ci": "lhci autorun",
+
+    "_comment_usage": "Usage: 'npm run lh:accessibility' tests all pages for a11y | 'npm run lh:station3' tests station 3 for all categories | Start Live Server on port 5500 first!"
   },
   "keywords": [
     "education",
