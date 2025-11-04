@@ -1,0 +1,536 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project overview
+
+HAP's Learning Lab is a static educational website teaching modern web development concepts through 6 interactive learning stations. HAP (HyBit A. ProtoBot™) is an AI apprentice character who guides students through topics like responsive images, AI prompt engineering, and container queries using a friendly first-person narrative.
+
+**Key characteristics:**
+
+- Pure HTML/CSS/JavaScript with no build process or frameworks
+- Educational content with HAP's apprentice voice throughout
+- Multi-license structure: MIT for code, proprietary for HAP™ character and educational content
+- High accessibility and performance standards (Lighthouse: 99/100/100/100)
+
+## Development commands
+
+### Running the site locally
+
+Since this is a static site with no build process, use any local server:
+
+```bash
+# Python 3 (recommended for simplicity)
+python3 -m http.server 8000
+
+# Node.js
+npx http-server
+
+# PHP
+php -S localhost:8000
+```
+
+Then open `http://localhost:8000`
+
+**Important:** Do not open `index.html` directly via `file://` protocol - the easter egg feature loads JSON data via fetch and requires a server.
+
+### Testing features
+
+**Easter egg system:**
+
+```bash
+# Test page-specific help
+http://localhost:8000/stations/responsive-images.html?hybit
+
+# Test specific insight
+http://localhost:8000/index.html?hybit=detail
+
+# Test invalid parameter (should show "unknown" message)
+http://localhost:8000/index.html?hybit=invalid
+```
+
+## Architecture
+
+### File structure
+
+```
+hap-template/
+├── index.html              # Hub page linking all stations
+├── stations/               # 6 learning station pages
+│   ├── ai-poetry-images.html
+│   ├── responsive-images.html
+│   ├── art-direction.html
+│   ├── modern-formats.html
+│   ├── loading-strategies.html
+│   └── container-queries.html
+├── css/
+│   ├── style.css          # Single stylesheet for entire site
+│   └── prism-hap-theme.css
+├── js/
+│   └── easter-egg.js      # HAP Insights feature
+├── data/
+│   ├── hybit-insights.jsonc  # Easter egg content (JSONC format)
+│   └── README.md          # Easter egg system documentation
+```
+
+### HAP Insights easter egg system
+
+**How it works:**
+
+1. User adds `?hybit` or `?hybit=param` to any page URL
+2. JavaScript detects parameter and loads `data/hybit-insights.jsonc`
+3. JSONC comments are stripped via regex, then parsed as JSON
+4. Shows page-specific help (bare `?hybit`) or specific insight message
+5. HAP avatar spins, dialog appears after 2-second delay
+
+**Security model:**
+
+- Whitelist validation in `allowedParams` array
+- No user input appears in HTML (prevents XSS)
+- Pre-defined messages only
+- Safe HTML tags: `<code>`, `<strong>`, `<em>`, `<br>`
+
+**Adding new insights:**
+
+See `data/README.md` for complete instructions. Summary:
+
+1. Add parameter to `allowedParams` array
+2. Create message in `messages` object with title and content
+3. Optionally add to `pageHelp` for specific pages
+4. Test with `?hybit=newparam`
+
+### CSS architecture
+
+**Single stylesheet approach:**
+
+- All styles in `css/style.css` (no CSS modules or preprocessors)
+- CSS custom properties for theming (warm orange palette)
+- Utility classes for spacing: `.mt-1`, `.mb-2`, `.p-3`, etc.
+- Mobile-first responsive design with `clamp()` for fluid typography
+- Semantic landmarks and skip-to-content for accessibility
+
+**CRITICAL: Color format and terminology**:
+
+- **ALWAYS use hsl() format** for all colors
+- **NEVER use hex (#) or rgb()** except in educational examples
+- **ALWAYS say "CSS custom property"** not "CSS variable"
+
+**Key CSS patterns:**
+
+```css
+/* CSS custom properties defined in :root */
+--warm-orange: hsl(32, 76%, 63%);  /* ✅ CORRECT: hsl() format */
+--readable-width: 75ch;
+
+/* ❌ WRONG: Never use hex format */
+--warm-orange: #E8A557;  /* FORBIDDEN */
+
+/* Utility spacing classes */
+.mt-1 { margin-top: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+
+/* Component classes */
+.card { /* Reusable card pattern */ }
+.code-block { /* Syntax-highlighted code */ }
+```
+
+### HTML structure conventions
+
+**Header pattern (all pages):**
+
+```html
+<header class="header">
+  <div class="header-content">
+    <div class="hybit-welcome">
+      <div class="hybit-avatar">
+        <img src="[cloudinary]/hap-laptop_xiewar.jpg" ... >
+      </div>
+      <div>
+        <h1>[Page Title]</h1>
+        <p class="subtitle">[Subtitle]</p>
+      </div>
+    </div>
+    <div class="intro-box">
+      <p><strong>Welcome to Station X!</strong> [HAP's apprentice voice intro]</p>
+    </div>
+  </div>
+</header>
+```
+
+**Navigation pattern:**
+
+```html
+<nav aria-label="Page navigation" class="page-navigation top-nav">
+  <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+  <div class="page-position">Station X of 6</div>
+</nav>
+```
+
+**Station content pattern:**
+
+```html
+<main id="main-content">
+  <article class="station-content">
+    <section class="intro-section">
+      [HAP's narrative introduction]
+    </section>
+
+    <section class="content-section">
+      [Educational content with examples]
+    </section>
+  </article>
+</main>
+```
+
+### Image optimization via Cloudinary
+
+All images use Cloudinary CDN with automatic optimization:
+
+```html
+<!-- Pattern for responsive images -->
+<img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_600/[image-id].jpg"
+     alt="Descriptive text"
+     width="600"
+     height="400"
+     loading="lazy">
+```
+
+**Cloudinary parameters:**
+
+- `f_auto` - Automatic format (WebP/AVIF when browser supports)
+- `q_auto` - Automatic quality optimization
+- `w_600` - Width constraint for responsive sizing
+- `c_fill`, `c_limit`, `c_scale` - Cropping strategies
+
+### HAP's apprentice voice
+
+**Critical:** HAP is an AI apprentice learning from Prof. Teeters. Use this voice consistently:
+
+**Correct:**
+
+- "I learned from Prof. Teeters that..."
+- "When I was practicing with responsive images, I discovered..."
+- "At first I was confused, but Prof. Teeters showed me..."
+- "Let me show you what I learned!"
+
+**Incorrect:**
+
+- "You should..." (too instructional)
+- "We will..." (not apprentice perspective)
+- "This tutorial covers..." (generic, not HAP's voice)
+
+**Voice characteristics:**
+
+- First person perspective ("I learned", "I discovered")
+- Humble and enthusiastic about learning
+- References Prof. Teeters as mentor
+- Friendly and relatable to students
+- Uses 🟠 and 🔬 emojis occasionally
+
+## Common tasks
+
+### Adding a new learning station
+
+1. Copy an existing station HTML as template
+2. Update `<title>`, `<meta name="description">`, `<meta property="og:image">`
+3. Change header: station number, title, HAP's intro
+4. Replace content sections with new educational material
+5. Add HAP Insights parameter to `data/hybit-insights.jsonc`
+6. Update `index.html` hub page with link to new station
+7. Update navigation: "Station X of 6" → "Station X of 7"
+
+### Modifying HAP Insights easter egg
+
+**Edit content:**
+
+```bash
+# Open JSONC file (has inline comments)
+nano data/hybit-insights.jsonc
+
+# Structure:
+{
+  "allowedParams": ["param1", "param2"],
+  "messages": {
+    "param1": {
+      "title": "🚀 Title with emoji",
+      "content": "Message content with <code>tags</code>"
+    }
+  },
+  "pageHelp": {
+    "page.html": {
+      "title": "🔬 HAP here!",
+      "intro": "[HAP's apprentice voice]",
+      "suggestions": [...]
+    }
+  }
+}
+```
+
+**Test changes:**
+
+1. Reload page with `?hybit=param`
+2. Check browser console for JSON parse errors
+3. Verify dialog appears with correct content
+4. Test on multiple pages if using `pageHelp`
+
+### Updating styles
+
+**Global color changes:**
+
+Edit CSS custom properties in `:root` (css/style.css:6-40)
+
+**Adding utility classes:**
+
+Follow existing pattern in css/style.css (spacing, colors, layout helpers)
+
+**Component styles:**
+
+Add new component class below utilities section, use BEM-like naming
+
+## Development workflow
+
+### Iteration cycle (draft → review → refine)
+
+HAP Learning Lab development is **iterative by design**. Expect multiple rounds of refinement:
+
+**Typical workflow**:
+
+1. **Draft** (first pass)
+   - Create station HTML from template
+   - Fill in curriculum content
+   - Add HAP voice narrative
+   - Include code examples
+   - Time: 1-2 hours per station
+
+2. **Self-review** (use Claude Skills)
+   - Run `hap-voice` skill on content
+   - Run `accessibility-check` skill on HTML
+   - Run `css-standards` skill on styles
+   - Run `station-content` skill on structure
+   - Time: 30 minutes per station
+
+3. **Testing** (technical validation)
+   - Test in Live Server locally
+   - Run Lighthouse audits (per-station scripts)
+   - Test on mobile device
+   - Verify copy buttons work
+   - Verify easter egg system works
+   - Time: 30 minutes per station
+
+4. **Refine** (based on findings)
+   - Fix voice inconsistencies
+   - Correct accessibility issues
+   - Adjust code examples
+   - Polish HAP callouts
+   - Time: 1-2 hours per station
+
+5. **Document** (lessons learned)
+   - Create report if significant insights discovered
+   - Update curriculum plan if scope changed
+   - Note patterns for future stations
+   - Time: 15-30 minutes
+
+**Expected iterations**: 2-3 rounds per station before completion
+
+**Do not expect perfection on first draft.** This is normal and healthy.
+
+## Quality gates
+
+Before considering a station "complete", verify these checkpoints:
+
+### Pre-deployment checklist
+
+**Structure**:
+- [ ] All 6 required sections present in correct order
+- [ ] Section ordering matches Station 1 pattern
+- [ ] Skip link present as first body element
+- [ ] Navigation has proper aria-labels
+- [ ] Footer has customized HAP reminder
+
+**Content**:
+- [ ] HAP voice is first-person throughout (no "you should")
+- [ ] Prof. Teeters referenced as mentor
+- [ ] Code examples are complete and tested
+- [ ] EXACTLY 3 insight cards in "What You'll Learn"
+- [ ] Challenge exercise has working solution reveal
+
+**Accessibility**:
+- [ ] Heading hierarchy correct (h1 → h2 → h3, no skips)
+- [ ] All images have alt text, width, height
+- [ ] HAP avatar has fetchpriority="high"
+- [ ] Other images have loading="lazy"
+- [ ] Links have descriptive text
+
+**Performance**:
+- [ ] Lighthouse Performance ≥ 99/100
+- [ ] Lighthouse Accessibility = 100/100
+- [ ] Lighthouse Best Practices = 100/100
+- [ ] Lighthouse SEO = 100/100
+- [ ] No console errors
+- [ ] No layout shift (images sized)
+
+**Functionality**:
+- [ ] Copy buttons appear on code blocks
+- [ ] Solution reveal buttons work
+- [ ] Easter egg system responds to ?hybit parameter
+- [ ] Syntax highlighting works (Prism.js)
+- [ ] All links navigate correctly
+
+### When to create a report
+
+Create analysis reports when:
+- Discovering significant pedagogical gaps
+- Finding systematic issues across multiple stations
+- Identifying patterns that should be documented
+- Planning major changes or improvements
+- Completing major milestones
+
+**Report types**:
+- Pedagogical analysis (teaching gaps, improvements)
+- Technical audit (accessibility, performance)
+- Implementation plan (Phase-based roadmaps)
+- Lessons learned (template improvements)
+
+Save reports to `/reports/` directory with descriptive names.
+
+## Using Claude Skills effectively
+
+### Skill usage timing
+
+**Before starting a station**:
+- Review `station-content` skill (structure requirements)
+- Review `hap-voice` skill (voice patterns)
+- Review `css-standards` skill (color format rules)
+
+**During station creation**:
+- Use `hap-voice` skill when writing HAP narratives
+- Use `demo-builder` skill when creating interactive demos
+- Use `css-standards` skill when adding any colors
+
+**Before committing station**:
+- Run `station-content` skill (structure validation)
+- Run `accessibility-check` skill (WCAG compliance)
+- Run `security-audit` skill (easter egg validation)
+- Run `testing-framework` skill (performance validation)
+
+**Skills are NOT optional** - they prevent issues discovered in previous projects.
+
+### Skill validation workflow
+
+1. **hap-voice**: Validate all narrative content
+   - Check every paragraph against voice rules
+   - Verify Prof. Teeters is referenced
+   - Ensure first-person perspective throughout
+
+2. **station-content**: Validate structure
+   - All 6 sections present
+   - Section ordering matches Station 1
+   - EXACTLY 3 insight cards
+   - Copy button JavaScript present
+
+3. **accessibility-check**: Validate WCAG AA
+   - Heading hierarchy
+   - Alt text on images
+   - ARIA labels on navigation
+   - Color contrast
+
+4. **css-standards**: Validate color format
+   - All colors use hsl() format
+   - No hex colors (#RRGGBB)
+   - No rgb() or rgba()
+
+5. **testing-framework**: Validate performance
+   - Run Lighthouse on each station
+   - Verify 99+/100 scores
+   - Test on mobile device
+
+6. **security-audit**: Validate easter egg
+   - Whitelist validation
+   - No user input in HTML
+   - Safe HTML tags only
+
+## Important constraints
+
+### DO NOT
+
+- **Add build tools or frameworks** - This is intentionally a pure HTML/CSS/JS project for educational simplicity
+- **Change HAP's character voice** - Proprietary trademark, must maintain apprentice perspective
+- **Remove license headers** - Multi-license structure protects code (MIT), character (proprietary), and content (proprietary)
+- **Use `file://` protocol for testing** - Easter egg fetch requires server
+- **Add user-controlled content to easter egg** - XSS prevention via whitelist only
+
+### Always
+
+- **Maintain accessibility standards** - Skip links, semantic HTML, ARIA labels, keyboard navigation
+- **Use HAP's apprentice voice** in student-facing content
+- **Test easter egg after modifying JSONC** - JSON parse errors break feature silently
+- **Use Cloudinary for images** - Automatic optimization and format selection
+- **Follow sentence case for headers** - Per markdown standards in global CLAUDE.md
+
+## Dependencies
+
+**None.** This project has zero npm dependencies, no build process, and no frameworks.
+
+**External resources:**
+
+- Google Fonts (Nunito, Source Code Pro)
+- Cloudinary CDN for images
+- Native `<dialog>` element (requires modern browsers: Chrome 90+, Firefox 90+, Safari 15.4+)
+
+## Browser compatibility
+
+Requires modern browsers for:
+
+- Native `<dialog>` element (easter egg modals)
+- CSS custom properties
+- Fetch API (loading JSONC)
+- URLSearchParams (reading query parameters)
+
+**Coverage:** 95%+ of users (as of 2024)
+
+## Performance considerations
+
+Current Lighthouse scores: 99/100/100/100
+
+**Optimization techniques in use:**
+
+- Cloudinary CDN with global edge network
+- Lazy loading for below-fold images
+- Deferred script loading (`defer` attribute)
+- Preconnect to Cloudinary origin
+- Minimal CSS/JS (no frameworks)
+- Optimized critical rendering path
+
+**When adding content:**
+
+- Keep images on Cloudinary with `f_auto,q_auto` parameters
+- Use `loading="lazy"` for below-fold images
+- Use `fetchpriority="high"` only for LCP image (HAP avatar)
+- Defer non-critical JavaScript
+
+## Multi-license structure
+
+**Code (MIT):** html/css/js files
+
+**HAP™ Character (Proprietary):** Character design, personality, visual identity
+
+**Educational Content (Proprietary):** Teaching methodology, station narratives, apprentice voice approach
+
+See README.md:356-406 for complete license explanation.
+
+**When contributing:**
+
+- You can modify code freely (MIT)
+- Do not create derivative HAP characters
+- Maintain attribution for educational methodology
+
+## Contact and support
+
+This is an educational project by Prof. Cynthia Teeters demonstrating AI-enhanced teaching methods.
+
+**For questions:**
+
+- Easter egg system: See `data/README.md`
+- Code structure: Inline HTML/CSS/JS comments
+- HAP character usage: See `TRADEMARK.md`
+- Educational content: See `CONTENT-LICENSE.md`

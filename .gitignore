@@ -105,8 +105,8 @@ temp/
 .webpack/
 
 # Claude Code files
-CLAUDE.md
-.claude/
+# CLAUDE.md
+# .claude/
 
 # Reports folder (generated content)
 reports/
