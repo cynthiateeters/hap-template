@@ -17,6 +17,24 @@ Enforces modern HSL color format and CSS custom properties for all HAP Learning 
 
 **NEVER** hardcode colors in hex or rgb() format.
 
+## Critical terminology
+
+**ALWAYS use correct terminology**:
+
+- ✅ **CORRECT**: "CSS custom property" when referring to `--variable-name`
+- ❌ **WRONG**: "CSS variable" - this is incorrect terminology
+
+**Examples**:
+
+- ✅ CORRECT: "Define CSS custom properties in the :root selector"
+- ✅ CORRECT: "This CSS custom property controls the primary color"
+- ✅ CORRECT: "Reference custom properties with var()"
+- ❌ WRONG: "Define CSS variables in the :root selector"
+- ❌ WRONG: "This CSS variable controls the primary color"
+- ❌ WRONG: "Reference variables with var()"
+
+**Why it matters**: The official W3C specification calls them "CSS custom properties for cascading variables". The `--name` is a custom property, `var()` is the function that references it. Calling them "CSS variables" is technically incorrect.
+
 ## Core color standards
 
 ### Rule 1: Use hsl() format exclusively

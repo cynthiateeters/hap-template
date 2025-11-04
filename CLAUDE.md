@@ -13,6 +13,26 @@ HAP's Learning Lab is a static educational website teaching modern web developme
 - Multi-license structure: MIT for code, proprietary for HAP™ character and educational content
 - High accessibility and performance standards (Lighthouse: 99/100/100/100)
 
+## 🚨 CRITICAL: Use Claude Skills
+
+**Before creating or editing ANY station files, you MUST consult the relevant Skills:**
+
+This project includes 7 mandatory Claude Skills in `.claude/skills/`:
+
+1. **css-standards** - ALWAYS use FIRST before any CSS work (hsl() format, correct terminology)
+2. **hap-voice** - Validates HAP's first-person apprentice voice
+3. **station-content** - Enforces 6-section structure and patterns
+4. **accessibility-check** - WCAG 2.2 Level AA compliance
+5. **demo-builder** - Interactive demo patterns
+6. **security-audit** - Easter egg whitelist validation
+7. **testing-framework** - Performance and testing guidance
+
+**These Skills are NOT optional.** They prevent errors discovered in previous projects and enforce standards that are difficult to fix retroactively.
+
+**Workflow**: Review relevant Skill → Create content → Validate with Skill → Commit
+
+See "Using Claude Skills effectively" section below for detailed timing and usage.
+
 ## Development commands
 
 ### Running the site locally
@@ -395,17 +415,20 @@ Save reports to `/reports/` directory with descriptive names.
 
 ## Using Claude Skills effectively
 
+**CRITICAL**: The 7 Claude Skills in `.claude/skills/` are **MANDATORY**, not optional. They enforce standards and prevent issues discovered in previous projects.
+
 ### Skill usage timing
 
-**Before starting a station**:
+**Before starting ANY work**:
+- **ALWAYS review `css-standards` skill first** - Color format and terminology rules
 - Review `station-content` skill (structure requirements)
 - Review `hap-voice` skill (voice patterns)
-- Review `css-standards` skill (color format rules)
 
 **During station creation**:
+- **ALWAYS use `css-standards` skill** when adding any colors OR writing about CSS
 - Use `hap-voice` skill when writing HAP narratives
 - Use `demo-builder` skill when creating interactive demos
-- Use `css-standards` skill when adding any colors
+- Use `station-content` skill when structuring sections
 
 **Before committing station**:
 - Run `station-content` skill (structure validation)
@@ -413,7 +436,7 @@ Save reports to `/reports/` directory with descriptive names.
 - Run `security-audit` skill (easter egg validation)
 - Run `testing-framework` skill (performance validation)
 
-**Skills are NOT optional** - they prevent issues discovered in previous projects.
+**If you skip Skills, you WILL introduce errors that were already solved.**
 
 ### Skill validation workflow
 
@@ -434,10 +457,12 @@ Save reports to `/reports/` directory with descriptive names.
    - ARIA labels on navigation
    - Color contrast
 
-4. **css-standards**: Validate color format
-   - All colors use hsl() format
+4. **css-standards**: Validate color format AND terminology
+   - All colors use hsl() format (NEVER hex or rgb)
    - No hex colors (#RRGGBB)
    - No rgb() or rgba()
+   - ALWAYS say "CSS custom property" (NEVER "CSS variable")
+   - All documentation uses correct terminology
 
 5. **testing-framework**: Validate performance
    - Run Lighthouse on each station
