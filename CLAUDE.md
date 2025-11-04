@@ -13,6 +13,28 @@ HAP's Learning Lab is a static educational website teaching modern web developme
 - Multi-license structure: MIT for code, proprietary for HAP™ character and educational content
 - High accessibility and performance standards (Lighthouse: 99/100/100/100)
 
+## 🚨 CRITICAL: Station 6 specification
+
+**Station 6 is ALWAYS about AI assistance for the topic being taught.**
+
+**Title format**: "Station 6: AI Assistance for [Your Topic]"
+
+**Examples**:
+- "Station 6: AI Assistance for SVG Development"
+- "Station 6: AI Assistance for Responsive Images"
+- "Station 6: AI Assistance for Container Queries"
+
+**Required content**:
+1. Understanding AI capabilities for this specific topic
+2. Effective prompt engineering examples
+3. Best practices for AI collaboration
+4. Common pitfalls when using AI for this topic
+5. HAP's AI workflow (how he used AI while learning in Stations 1-5)
+
+**Voice**: HAP shares specific examples of asking AI for help, what worked, what didn't, and Prof. Teeters' guidance on responsible AI use.
+
+**Example station**: See `hybit-svg/stations/station6.html` for a complete Station 6 implementation.
+
 ## 🚨 CRITICAL: Use Claude Skills
 
 **Before creating or editing ANY station files, you MUST consult the relevant Skills:**
