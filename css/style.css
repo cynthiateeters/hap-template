@@ -1,9 +1,101 @@
+/*
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                         HAP DESIGN SYSTEM CSS                             ║
+║                    Educational UI Pattern Library                         ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+ARCHITECTURE OVERVIEW:
+
+This stylesheet is organized into 7 main sections:
+
+  1. CSS CUSTOM PROPERTIES (lines 80-150)
+     Purpose: Single source of truth for colors, spacing, typography
+     When to modify: When creating new themed learning lab
+
+  2. RESET & BASE STYLES (lines 151-250)
+     Purpose: Cross-browser consistency, semantic HTML foundation
+     When to modify: Rarely - these are production-tested defaults
+
+  3. LAYOUT PATTERNS (lines 251-600)
+     Purpose: Page structure, responsive containers, grid systems
+     When to extend: When creating unique page layouts
+
+  4. COMPONENT LIBRARY (lines 601-2000)
+     Purpose: Reusable HAP-branded UI patterns
+     When to extend: When creating new interactive elements
+
+  5. UTILITY CLASSES (lines 2001-2400)
+     Purpose: Single-purpose helpers (spacing, colors, typography)
+     When to extend: When needing new one-off modifications
+
+  6. SYNTAX HIGHLIGHTING (lines 2401-2700)
+     Purpose: Prism.js integration for code examples
+     When to modify: When customizing code block appearance
+
+  7. RESPONSIVE OVERRIDES (lines 2701-2900)
+     Purpose: Mobile-first breakpoint adjustments
+     When to extend: When adding device-specific behavior
+
+PHILOSOPHY:
+
+  • MOBILE-FIRST: Base styles work on small screens, enhance for larger
+  • SEMANTIC: Class names describe purpose, not appearance
+  • COMPOSABLE: Combine utilities with components for flexibility
+  • ACCESSIBLE: WCAG AA compliant with 4.5:1 contrast minimum
+
+COMMON WORKFLOWS:
+
+  → Adding new color: Define in :root (section 1), never inline
+  → Creating new component: Add to section 4 with educational comment
+  → Adjusting spacing: Use existing utilities (.mt-1, .mb-2) from section 5
+  → Responsive tweak: Add media query in section 7
+
+*/
+
 /* styles.css */
 /* Import friendly fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
-/* Color Palette - Warm & Scientific */
+/* ═══════════════════════════════════════════════════════════════════
+   SECTION 1: CSS CUSTOM PROPERTIES
+   ───────────────────────────────────────────────────────────────────
+
+   IMPORTANT: Color Format Standard
+
+   This template uses hex colors for compatibility, but NEW learning labs
+   should convert to hsl() format for better maintainability:
+
+   RECOMMENDED for new projects:
+     ✅ hsl(32, 76%, 63%)  - Easy to create variations
+     ✅ hsl(32, 76%, 53%)  - Just adjust lightness
+
+   AVOID in new projects:
+     ❌ #E8A557  - Harder to create variations
+     ❌ rgb(232, 165, 87)  - Less intuitive adjustments
+
+   Why hsl()?
+     • Easier to create hover states (darken by 10%)
+     • Maintains consistent hue across palette
+     • Better for accessibility calculations
+     • More semantic (hue, saturation, lightness)
+
+   To convert existing hex to hsl, use: https://htmlcolors.com/hex-to-hsl
+
+*/
 :root {
+  /* ═══════════════════════════════════════════════════════════════════
+     BRAND COLORS - HAP's Warm Orange Palette
+     ───────────────────────────────────────────────────────────────────
+
+     Philosophy: Warm, approachable, educational
+
+     Primary: Warm orange (#E8A557)
+       Use for: Buttons, links, accents, HAP's signature color 🟠
+
+     Secondary: Peach (#F4E8D8)
+       Use for: Backgrounds, callouts, subtle highlights
+     ═══════════════════════════════════════════════════════════════════ */
+
   --warm-orange: #E8A557;
   --soft-orange: #F4C584;
   --peach-background: #F4E8D8;
@@ -16,19 +108,25 @@
   --success-green: #6BBF59;
   --warning-red: #E85D75;
 
-  /* WCAG AA accessible darker variants for text on cream background */
-  --teal-darker: #3A7A70;
-  /* 4.5:1 contrast ratio - for normal text */
-  --orange-darker: #C17D2E;
-  /* 3.1:1 contrast ratio - for large bold text on cream */
-  --orange-darkest: #8B5A1F;
-  /* 4.5:1 contrast ratio - for normal text on peach */
-  --success-darker: #16a34a;
-  /* Darker green for success messages - 4.5:1 for normal text */
-  --success-green-accessible: #4A9D3F;
-  /* 3.1:1 contrast for large bold text */
-  --error-darker: #dc2626;
-  /* Darker red for error messages */
+  /* ═══════════════════════════════════════════════════════════════════
+     ACCESSIBILITY COLORS - WCAG AA Compliant Variants
+     ───────────────────────────────────────────────────────────────────
+
+     WCAG AA Requirements:
+       • Normal text: 4.5:1 contrast minimum
+       • Large text (≥18px or ≥14px bold): 3:1 contrast minimum
+
+     These darker variants ensure text readability on cream backgrounds.
+
+     Use WebAIM contrast checker: https://webaim.org/resources/contrastchecker/
+     ═══════════════════════════════════════════════════════════════════ */
+
+  --teal-darker: #3A7A70;              /* 4.5:1 on cream - normal text */
+  --orange-darker: #C17D2E;            /* 3.1:1 on cream - large bold text */
+  --orange-darkest: #8B5A1F;           /* 4.5:1 on peach - normal text */
+  --success-darker: #16a34a;           /* 4.5:1 - success messages */
+  --success-green-accessible: #4A9D3F; /* 3.1:1 - large bold success */
+  --error-darker: #dc2626;             /* 4.5:1 - error messages */
 
   /* Light background variants for examples */
   --success-bg-light: #f0fdf4;
@@ -368,7 +466,52 @@ h4 {
   flex: 1;
 }
 
-/* HAP Note Callout */
+/*
+┌─────────────────────────────────────────────────────────────────────────┐
+│ COMPONENT: HAP Note Callout                                            │
+├─────────────────────────────────────────────────────────────────────────┤
+│ PURPOSE:                                                                │
+│   Highlight HAP's tips, warnings, or breakthrough moments              │
+│   Uses HAP's avatar for visual personality and engagement              │
+│                                                                          │
+│ WHEN TO USE:                                                            │
+│   • Sharing mistakes HAP made (pedagogical vulnerability)              │
+│   • Explaining Prof. Teeters' teaching (mentor attribution)            │
+│   • Providing practical tips (student-friendly advice)                 │
+│   • Celebrating breakthroughs (emotional learning moments)             │
+│                                                                          │
+│ VARIANTS:                                                               │
+│   .hap-note-callout           → Standard tip (peach gradient)          │
+│   .hap-note-callout.warning   → Mistake warning (add yellow bg)        │
+│   .hap-note-callout.breakthrough → Aha moment (add light orange bg)    │
+│                                                                          │
+│ STRUCTURE:                                                              │
+│   <div class="hap-note-callout">                                        │
+│     <img src="[HAP-IMAGE]" class="hap-note-image" ...>                 │
+│     <div class="hap-note-content">                                      │
+│       <h3>[TITLE]</h3>                                                  │
+│       <p>[CONTENT]</p>                                                  │
+│     </div>                                                              │
+│   </div>                                                                │
+│                                                                          │
+│ EXTENSION POINTS:                                                       │
+│   background: Change gradient for variants                             │
+│   border: Change color for different callout types                     │
+│   max-width: Adjust container width (default: 900px)                   │
+│                                                                          │
+│ ACCESSIBILITY:                                                          │
+│   • Image has descriptive alt text (not "HAP icon")                    │
+│   • Content is readable without image (semantic HTML)                  │
+│   • Contrast meets WCAG AA (4.5:1 minimum)                             │
+│   • Text scales with user preferences (clamp() for font-size)          │
+│                                                                          │
+│ COMMON MISTAKES:                                                        │
+│   ❌ Using generic voice ("You should know...")                        │
+│   ❌ Missing HAP attribution ("Prof. Teeters taught me...")            │
+│   ❌ Overusing (max 2-3 per station)                                    │
+│   ✅ Personal stories with specific details                            │
+└─────────────────────────────────────────────────────────────────────────┘
+*/
 .hap-note-callout {
   background: linear-gradient(135deg, var(--cream-white) 0%, var(--peach-background) 100%);
   border-radius: var(--radius);
@@ -600,6 +743,54 @@ h4 {
     transform: translateY(0);
   }
 }
+
+/*
+┌─────────────────────────────────────────────────────────────────────────┐
+│ COMPONENT: Insight Cards                                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│ PURPOSE:                                                                │
+│   Display exactly 3 key learning points in "What You'll Learn" section │
+│   Each card represents one major concept from the station              │
+│                                                                          │
+│ WHEN TO USE:                                                            │
+│   • ONLY in "What You'll Learn" section (first content section)        │
+│   • EXACTLY 3 cards (never 2, never 4)                                  │
+│   • Each card = one distinct learning objective                        │
+│                                                                          │
+│ STRUCTURE:                                                              │
+│   <div class="overview-grid">                                           │
+│     <div class="insight-card">                                          │
+│       <h3><span class="insight-icon">🎯</span> [CONCEPT 1]</h3>         │
+│       <p class="stat-large">[KEY METRIC]</p>                            │
+│       <p>[HAP's personal learning story]</p>                            │
+│     </div>                                                              │
+│     <!-- Repeat 2 more times for 3 total cards -->                     │
+│   </div>                                                                │
+│                                                                          │
+│ RESPONSIVE BEHAVIOR:                                                    │
+│   Mobile (<768px): Stacked vertically, full width                       │
+│   Tablet (768px+): Auto-fit grid, minimum 300px per card                │
+│   Desktop: Expands to fill available space                              │
+│                                                                          │
+│ EXTENSION POINTS:                                                       │
+│   grid-template-columns: Adjust minimum card width (default: 300px)    │
+│   gap: Adjust spacing between cards (default: 2rem)                    │
+│   padding: Adjust internal card spacing (default: 2rem)                │
+│                                                                          │
+│ ACCESSIBILITY:                                                          │
+│   • Each card is independently focusable                                │
+│   • Heading hierarchy maintained (h3 inside cards)                     │
+│   • Hover state has sufficient visual feedback                         │
+│   • Text scales with clamp() for all screen sizes                      │
+│                                                                          │
+│ COMMON MISTAKES:                                                        │
+│   ❌ Adding 4th card (breaks 1-2-3 visual rhythm)                      │
+│   ❌ Generic descriptions ("Learn about X")                             │
+│   ❌ Missing HAP's personal story                                       │
+│   ❌ Inconsistent icon usage                                            │
+│   ✅ Specific, personal learning moments with stats                    │
+└─────────────────────────────────────────────────────────────────────────┘
+*/
 
 /* Overview Section */
 .overview-grid {
@@ -1063,6 +1254,64 @@ pre {
   white-space: pre-wrap;
   overflow-x: auto;
 }
+
+/*
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                          UTILITY CLASSES                                  ║
+║                    Single-Purpose Helper Classes                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+PHILOSOPHY:
+
+Utilities are single-purpose classes that do ONE thing well. They are
+COMPOSABLE - combine multiple utilities for complex styling without
+creating custom component classes.
+
+SPACING UTILITIES:
+
+  Margin:  .mt-1, .mt-2, .mt-3, .mb-1, .mb-2, .mb-3
+  Padding: .p-1, .p-2, .p-3
+
+  Scale: 0-5 = 0.5rem, 1 = 1rem, 1-5 = 1.5rem, 2 = 2rem, 3 = 3rem
+
+  Example usage:
+    <div class="hap-note-callout mt-2 mb-3">
+      <!-- Top margin 2rem, bottom margin 3rem -->
+    </div>
+
+TYPOGRAPHY UTILITIES:
+
+  .text-center    → text-align: center
+  .text-bold      → font-weight: 700
+  .text-error     → Red text for errors
+  .text-success   → Green text for success
+
+  Example usage:
+    <p class="text-center text-success">✅ Correct!</p>
+
+LAYOUT UTILITIES:
+
+  .read-length    → Constrain to readable width (75ch)
+  .content-container → Main content wrapper
+
+COLOR UTILITIES:
+
+  .bg-peach       → Peach background
+  .bg-white       → White background
+
+  Example usage:
+    <div class="bg-peach p-2">
+      <!-- Peach background, 2rem padding -->
+    </div>
+
+WHEN TO CREATE NEW UTILITIES:
+
+  ✅ DO create if pattern repeats 3+ times across stations
+  ✅ DO create if utility is self-documenting (.text-center)
+  ❌ DON'T create for one-off styling (use inline or component class)
+  ❌ DON'T create if name would be vague (.style-1)
+
+*/
 
 /* Utility Classes - Spacing */
 

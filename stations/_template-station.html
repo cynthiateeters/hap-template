@@ -194,6 +194,67 @@
                     <p class="mt-1"><strong>[Key takeaway in HAP's voice]</strong> 🟠</p>
                 </div>
             </div>
+
+            <!-- ┌─────────────────────────────────────────────────────────────────────────┐
+                 │ PATTERN VARIATIONS: HAP Note Callout (3 Types)                         │
+                 │                                                                          │
+                 │ TYPE 1: Tip/Insight (use hap-explaining_pbhsgn.jpg)                    │
+                 │ TYPE 2: Warning/Mistake (use hap-confused_v8jmqk.jpg)                  │
+                 │ TYPE 3: Breakthrough (use hap-excited - if available)                  │
+                 │                                                                          │
+                 │ UNCOMMENT THE TYPE YOU NEED:                                           │
+                 └─────────────────────────────────────────────────────────────────────────┘
+
+            TYPE 1: TIP/INSIGHT (Most common - use for helpful advice)
+            ─────────────────────────────────────────────────────────────
+            <div class="hap-note-callout mt-2">
+              <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,h_80,c_fill/HAP/hap-explaining_pbhsgn.jpg"
+                   alt="HAP sharing a helpful tip"
+                   width="80"
+                   height="80"
+                   loading="lazy">
+              <div class="hap-note-content">
+                <h4>HAP's Tip: [TIP TITLE]</h4>
+                <p>Prof. Teeters taught me [SPECIFIC TECHNIQUE]. This saved me so much time! 🟠</p>
+                <p class="mt-1"><strong>When to use it:</strong> [PRACTICAL SCENARIO]</p>
+              </div>
+            </div>
+
+
+            TYPE 2: WARNING/MISTAKE (Use when showing common errors)
+            ─────────────────────────────────────────────────────────────
+            <div class="hap-note-callout warning mt-2">
+              <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,h_80,c_fill/HAP/hap-confused_v8jmqk.jpg"
+                   alt="HAP warning about a common mistake"
+                   width="80"
+                   height="80"
+                   loading="lazy">
+              <div class="hap-note-content">
+                <h4>⚠️ HAP's Mistake: [WHAT WENT WRONG]</h4>
+                <p>I tried [WRONG APPROACH] and it completely broke [RESULT]. Prof. Teeters explained why this doesn't work: [EXPLANATION].</p>
+                <p class="mt-1"><strong>The right way:</strong> [CORRECT APPROACH] 🟠</p>
+              </div>
+            </div>
+
+
+            TYPE 3: BREAKTHROUGH (Use for "aha!" moments)
+            ─────────────────────────────────────────────────────────────
+            <div class="hap-note-callout breakthrough mt-2">
+              <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,h_80,c_fill/HAP/hap-explaining_pbhsgn.jpg"
+                   alt="HAP having a breakthrough moment"
+                   width="80"
+                   height="80"
+                   loading="lazy">
+              <div class="hap-note-content">
+                <h4>💡 HAP's Breakthrough!</h4>
+                <p>This is the moment when [CONCEPT] finally clicked for me! Prof. Teeters said: <em>"[QUOTE]"</em></p>
+                <p class="mt-1">Once I understood [KEY INSIGHT], everything else made sense. Now I use this [HOW OFTEN]! 🟠</p>
+              </div>
+            </div>
+
+                 END PATTERN VARIATIONS
+                 ───────────────────────────────────────────────────────────────────────── -->
+
         </section>
 
         <!-- Main Content Section -->
@@ -231,6 +292,83 @@
                         <li>[List item 3]</li>
                     </ul>
                 </div>
+
+                <!-- ┌─────────────────────────────────────────────────────────────────────────┐
+                     │ INTERACTIVE PATTERN: Calculator/Tool                                   │
+                     │                                                                          │
+                     │ Use when: Students need to experiment with values                      │
+                     │ Examples: Aspect ratio calculator, color converter, size calculator    │
+                     │                                                                          │
+                     │ Pattern structure:                                                      │
+                     │   1. Tool container with inputs                                         │
+                     │   2. Real-time calculation display                                      │
+                     │   3. Inline JavaScript for immediate feedback                           │
+                     │   4. HAP's voice explaining what to notice                              │
+                     │                                                                          │
+                     │ UNCOMMENT THIS BLOCK TO USE:                                           │
+                     └─────────────────────────────────────────────────────────────────────────┘
+
+                <div class="demo-container mt-3">
+                  <h3>🔬 Interactive Tool: [TOOL NAME]</h3>
+
+                  <p>Prof. Teeters showed me this tool helps understand [CONCEPT] by letting you experiment with different values. Try changing the numbers! 🟠</p>
+
+                  <div class="demo-controls mt-2">
+                    <label for="input1-[UNIQUE-ID]">[INPUT 1 LABEL]:</label>
+                    <input type="number"
+                           id="input1-[UNIQUE-ID]"
+                           value="[DEFAULT]"
+                           min="[MIN]"
+                           max="[MAX]"
+                           oninput="calculate[ToolName]()"
+                           class="demo-input">
+
+                    <label for="input2-[UNIQUE-ID]" class="mt-1">[INPUT 2 LABEL]:</label>
+                    <input type="number"
+                           id="input2-[UNIQUE-ID]"
+                           value="[DEFAULT]"
+                           min="[MIN]"
+                           max="[MAX]"
+                           oninput="calculate[ToolName]()"
+                           class="demo-input">
+                  </div>
+
+                  <div class="demo-result mt-2">
+                    <strong>Result:</strong>
+                    <span id="result-[UNIQUE-ID]" class="result-value">[INITIAL RESULT]</span>
+                  </div>
+
+                  <script>
+                  function calculate[ToolName]() {
+                    const input1 = parseFloat(document.getElementById('input1-[UNIQUE-ID]').value);
+                    const input2 = parseFloat(document.getElementById('input2-[UNIQUE-ID]').value);
+
+                    // Perform calculation
+                    const result = [CALCULATION];
+
+                    // Update display
+                    document.getElementById('result-[UNIQUE-ID]').textContent = result;
+                  }
+
+                  // Run once on load
+                  calculate[ToolName]();
+                  </script>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                  <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,h_80,c_fill/HAP/hap-explaining_pbhsgn.jpg"
+                       alt="HAP explaining the concept"
+                       width="80"
+                       height="80"
+                       loading="lazy">
+                  <div class="hap-note-content">
+                    <h4>What to Notice</h4>
+                    <p>When Prof. Teeters had me play with this tool, she asked me to notice [WHAT TO OBSERVE]. Once I saw the pattern, [BREAKTHROUGH MOMENT]! 🟠</p>
+                  </div>
+                </div>
+
+                     END PATTERN: Interactive Calculator
+                     ───────────────────────────────────────────────────────────────────────── -->
 
                 <!-- ┌─────────────────────────────────────────────────────────────────┐
                      │ PATTERN: Before/After Code Comparison                           │
@@ -305,6 +443,45 @@
                 </div>
             </div>
         </section>
+
+        <!-- ┌─────────────────────────────────────────────────────────────────────────┐
+             │ INTERACTIVE PATTERN: Solution Reveal Button                            │
+             │                                                                          │
+             │ Use when: Students should try solving before seeing answer             │
+             │ Example: Station challenges, practice exercises                        │
+             │                                                                          │
+             │ Pattern structure:                                                      │
+             │   1. Challenge description with "Try it yourself!" encouragement       │
+             │   2. Hidden solution content                                            │
+             │   3. Button to reveal solution                                          │
+             │   4. JavaScript to toggle visibility                                    │
+             │                                                                          │
+             │ UNCOMMENT THIS BLOCK TO USE:                                           │
+             └─────────────────────────────────────────────────────────────────────────┘
+
+        <section class="content-section">
+          <div class="challenge-box mt-2">
+            <h3>🎯 Try It Yourself!</h3>
+            <p><strong>Challenge:</strong> [DESCRIBE THE TASK]</p>
+
+            <p class="mt-1">I remember when Prof. Teeters gave me this same challenge - I was stuck at first, but once I figured it out, it made SO much sense! Give it a try before peeking at the solution. 🟠</p>
+
+            <button onclick="document.getElementById('solution-[UNIQUE-ID]').style.display='block'; this.style.display='none';"
+                    class="reveal-button mt-2">
+              Show Solution
+            </button>
+
+            <div id="solution-[UNIQUE-ID]" style="display:none;" class="mt-2">
+              <h4>✅ Solution</h4>
+              <pre><code class="language-[LANGUAGE]">[SOLUTION CODE]</code></pre>
+
+              <p class="mt-1"><strong>Why this works:</strong> [HAP's EXPLANATION]</p>
+            </div>
+          </div>
+        </section>
+
+             END PATTERN: Solution Reveal
+             ─────────────────────────────────────────────────────────────────────────── -->
 
         <!-- ┌─────────────────────────────────────────────────────────────────────────┐
              │ PATTERN: Prof. Teeters Quotes                                           │
@@ -388,34 +565,56 @@
         integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
         crossorigin="anonymous"></script>
 
+    <!-- ┌─────────────────────────────────────────────────────────────────────────┐
+         │ REQUIRED JAVASCRIPT: Copy Button Functionality                         │
+         │                                                                          │
+         │ This script adds "Copy" buttons to all code blocks automatically       │
+         │ Students can click to copy code examples for testing                   │
+         │                                                                          │
+         │ This version targets ALL code blocks (not just .prompt-box)            │
+         │ Uncomment and customize if needed, or use as-is                        │
+         └─────────────────────────────────────────────────────────────────────────┘ -->
     <script>
-        // Copy button functionality for code blocks
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.prompt-box pre').forEach(pre => {
-                const button = document.createElement('button');
-                button.className = 'copy-button';
-                button.textContent = 'Copy';
-                button.setAttribute('aria-label', 'Copy code to clipboard');
+        document.addEventListener('DOMContentLoaded', function() {
+          // Find all code blocks
+          const codeBlocks = document.querySelectorAll('pre code');
 
-                button.addEventListener('click', async () => {
-                    const code = pre.querySelector('code').textContent;
-                    try {
-                        await navigator.clipboard.writeText(code);
-                        button.classList.add('copied');
-                        button.textContent = 'Copied';
-                        setTimeout(() => {
-                            button.classList.remove('copied');
-                            button.textContent = 'Copy';
-                        }, 2000);
-                    } catch (err) {
-                        console.error('Failed to copy:', err);
-                    }
-                });
+          codeBlocks.forEach((codeBlock) => {
+            // Create copy button
+            const button = document.createElement('button');
+            button.className = 'copy-button';
+            button.textContent = 'Copy';
+            button.setAttribute('aria-label', 'Copy code to clipboard');
 
-                pre.appendChild(button);
+            // Add button to DOM
+            const pre = codeBlock.parentNode;
+            pre.style.position = 'relative';
+            pre.appendChild(button);
+
+            // Copy functionality
+            button.addEventListener('click', async () => {
+              const code = codeBlock.textContent;
+
+              try {
+                await navigator.clipboard.writeText(code);
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                  button.textContent = 'Copy';
+                  button.classList.remove('copied');
+                }, 2000);
+              } catch (err) {
+                console.error('Failed to copy:', err);
+                button.textContent = 'Error';
+              }
             });
+          });
         });
     </script>
+
+    <!-- END REQUIRED JAVASCRIPT
+         ─────────────────────────────────────────────────────────────────────────── -->
 
 </body>
 
